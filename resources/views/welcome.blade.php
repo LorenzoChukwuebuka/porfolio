@@ -11,9 +11,9 @@
      <meta name="description" content="Lawrence Chukwuebuka Obi - Software Engineer">
      <meta name="author" content="Lawrence Chukwuebuka Obi - Software Engineer">
      <meta property="og:title" content="Lawrence Chukwuebuka Obi - Software Engineer">
-     <meta property="og:description" content="">
+     <meta property="og:description" content="Lawrence Chukwuebuka Obi - Software Engineer">
      <meta property="og:image" content="{{ asset('/images/Ebuka.jpeg') }}">
-     <meta property="og:url" content="https://example.com/page">
+     <meta property="og:url" content="https://lorenzochukwuebuka.com.ng">
      <meta property="og:type" content="website">
      <title>Lawrence Chukwuebuka Obi</title>
 

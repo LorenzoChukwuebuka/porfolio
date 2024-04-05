@@ -4,7 +4,7 @@
  <head>
      <meta charset="utf-8">
      <meta name="viewport" content="width=device-width, initial-scale=1">
-     @vite(['resources/css/app.css', 'resources/js/app.js'])
+     @vite('resources/js/app.js')
      @vite('resources/css/app.css')
      <link rel="icon" href="{{ asset('/images/Ebuka.jpeg') }}" type="image/png">
      <!-- Meta Tags for Search Engines -->

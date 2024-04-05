@@ -22,36 +22,41 @@ onMounted(() => {
                         <h1
                             class="lg:max-w-2xl mb-6 text-xl font-semibold tracking-tight leading-none md:text-xl xl:text-2xl dark:text-white"
                         >
-                            A full-stack Software Engineer
+                            A Software Engineer living in Nigeria.
                         </h1>
                         <p
                             class="lg:max-w-lg mb-6 font-normal text-gray-900 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-300"
                         >
-                            Exceptional software developer with 4+ years of
-                            experience in designing and developing websites
-                            across multiple APIs, third-party integrations, and
-                            databases. Skilled in Laravel Framework, JS, Go, and
-                            HTML/CSS.
+                            Welcome to my page! I'm a passionate and dedicated
+                            software developer with over 4 years of experience
+                            in designing and developing websites. My journey in
+                            the realm of web development has been driven by a
+                            relentless pursuit of excellence, where I
+                            continually strive to create innovative solutions
+                            that address unique demands for accessibility,
+                            reachability, and security.
                         </p>
                         <p
                             class="lg:max-w-lg mb-6 font-normal text-gray-900 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-300"
                         >
-                            Passionate and hardworking with a penchant for
-                            developing customized interfaces that factor in
-                            unique demands for accessibility, reachability, and
-                            security.
+                            I specialize in crafting customized interfaces
+                            tailored to meet the specific needs of each project,
+                            leveraging my expertise in technologies such as
+                            Laravel Framework, JavaScript, Go, and HTML/CSS. My
+                            portfolio showcases a diverse range of experiences,
+                            from developing high-performance web applications to
+                            managing server infrastructure and enhancing overall
+                            system reliability and scalability. I am open to collaborate on projects.
                         </p>
                         <!-- <p
                             class="lg:max-w-lg mb-6 font-normal text-gray-900 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-300"
                         >
-                            I am currently co-funding a startup called
-                            <a
-                                class="underline font-medium"
-                                href="https://pay4me.app"
-                                >Pay4Me App</a
-                            >. Our solution makes it easy for international
-                            students and immigrants to complete cross-border
-                            payments in minutes, not weeks.
+                            My professional journey has been marked by notable
+                            achievements at various organizations, where I have
+                            contributed to the development of high-performance
+                            web applications, optimized SQL queries, automated
+                            deployments, managed servers and networks, and
+                            collaborated with cross-functional teams.
                         </p> -->
                     </div>
                     <div class="lg:mt-0 lg:col-span-5 lg:flex">

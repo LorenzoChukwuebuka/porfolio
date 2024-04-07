@@ -20,6 +20,9 @@
         "vue": "^3.2.37"
     },
     "dependencies": {
-        "pinia": "^2.1.7"
+        "@tinymce/tinymce-vue": "^4.0.7",
+        "@vueup/vue-quill": "^1.2.0",
+        "pinia": "^2.1.7",
+        "vue-router": "^4.0.13"
     }
 }

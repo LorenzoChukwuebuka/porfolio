@@ -24,3 +24,6 @@ Route::get('/projects', function () {
 Route::get('/articles', function () {
     return view('article');
 });
+Route::get('/{any}', function () {
+    return view('admin.admindash');
+})->where("any", ".*");

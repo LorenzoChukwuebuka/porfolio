@@ -13,18 +13,37 @@ import { createApp } from 'vue'
  * to use in your application's views. An example is included for you.
  */
 
-const app = createApp({})
-
 import HomeComponent from './components/pages/HomeComponent.vue'
 import NavComponent from './components/layouts/Nav/NavComponent.vue'
 import ProjectComponent from './components/pages/ProjectComponent.vue'
 import FooterComponent from './components/layouts/FooterComponent.vue'
 import ArticleComponent from './components/pages/ArticleComponent.vue'
+import adminArticle from './components/pages/admin/adminArticles.vue'
+import AppComponent from "./components/App.vue"
+import { createPinia } from 'pinia';
+
+import router from './router'
+
+const pinia = createPinia()
+
+const app = createApp({
+    // components: {
+    //     AppComponent
+    // }
+})
+
+import { QuillEditor } from '@vueup/vue-quill'
+import '@vueup/vue-quill/dist/vue-quill.snow.css'
+
+app.use(router).use(pinia)
 app.component('home-component', HomeComponent)
     .component('nav-component', NavComponent)
     .component('project-component', ProjectComponent)
     .component('footer-component', FooterComponent)
     .component('article-component', ArticleComponent)
+    .component('admin-article-component', adminArticle)
+    .component('QuillEditor', QuillEditor)
+    .component('app',AppComponent)
 
 /**
  * The following block of code may be used to automatically register your

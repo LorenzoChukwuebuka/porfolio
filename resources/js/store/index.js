@@ -12,6 +12,7 @@ export const useEditorStore = defineStore('editorStore', () => {
     const title = ref('')
     const isLoading = ref(false)
     const errorMessage = ref('')
+    const isError = ref(false)
 
     const getEditorContent = () => {
         console.log('Editor Content:', editorContent.value)
@@ -29,7 +30,16 @@ export const useEditorStore = defineStore('editorStore', () => {
             console.log(response.data)
         } catch (error) {
             isLoading.value = false
-            console.log(error.message)
+            isError.value = true
+
+            if(error.response){
+             console.log(error)
+
+             errorMessage.value = error.response.data.error
+            }else{
+                errorMessage.value = 'an unexpected error occured'
+            }
+        
         } finally {
             isLoading.value = false
         }
@@ -62,6 +72,7 @@ export const useEditorStore = defineStore('editorStore', () => {
         title,
         submitPost,
         isLoading,
-        errorMessage
+        errorMessage,
+        isError
     }
 })

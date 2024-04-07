@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
 import { ref, reactive } from 'vue'
 import { QuillEditor } from '@vueup/vue-quill'
+import axios from 'axios'
 
 export const useArticleStore = defineStore('articlestore', {})
 
@@ -9,16 +10,33 @@ export const useAuthStore = defineStore('authstore', {})
 export const useEditorStore = defineStore('editorStore', () => {
     const editorContent = ref('')
     const title = ref('')
+    const isLoading = ref(false)
+    const errorMessage = ref('')
 
     const getEditorContent = () => {
-
-
         console.log('Editor Content:', editorContent.value)
- 
+    }
+
+    const submitPost = async () => {
+        try {
+            isLoading.value = true
+            let data = {
+                title: title.value,
+                post: JSON.stringify(editorContent.value)
+            }
+
+            let response = await axios.post('/api/post-article', data)
+            console.log(response.data)
+        } catch (error) {
+            isLoading.value = false
+            console.log(error.message)
+        } finally {
+            isLoading.value = false
+        }
     }
 
     const editorOptions = reactive({
-       // debug: 'info',
+        // debug: 'info',
         placeholder: 'Type your post...',
         modules: {
             toolbar: [
@@ -41,6 +59,9 @@ export const useEditorStore = defineStore('editorStore', () => {
         editorContent,
         getEditorContent,
         editorOptions,
-        title
+        title,
+        submitPost,
+        isLoading,
+        errorMessage
     }
 })

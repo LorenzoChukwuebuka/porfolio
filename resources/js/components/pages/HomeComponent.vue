@@ -27,26 +27,37 @@ onMounted(() => {
                         <p
                             class="lg:max-w-lg mb-6 font-normal text-gray-900 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-300"
                         >
-                            Welcome to my page! I'm a passionate and dedicated
-                            software developer with over 4 years of experience
-                            in designing and developing websites. My journey in
-                            the realm of web development has been driven by a
-                            relentless pursuit of excellence, where I
-                            continually strive to create innovative solutions
-                            that address unique demands for accessibility,
-                            reachability, and security.
+                            I'm a seasoned software developer specializing in building robust and user-centric websites and web applications. With over 4 years of experience, I've honed my skills across 100+ projects for diverse clients in both the private and public sectors. My passion lies in transforming ideas into functional, high-performance digital experiences.
                         </p>
                         <p
                             class="lg:max-w-lg mb-6 font-normal text-gray-900 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-300"
                         >
-                            I specialize in crafting customized interfaces
-                            tailored to meet the specific needs of each project,
-                            leveraging my expertise in technologies such as
-                            Laravel Framework, JavaScript, Go, and HTML/CSS. My
-                            portfolio showcases a diverse range of experiences,
-                            from developing high-performance web applications to
-                            managing server infrastructure and enhancing overall
-                            system reliability and scalability. I am open to collaborate on projects.
+
+<span class="block">
+                            My expertise encompasses:
+    <br/>
+                            ●	Front-end Development: HTML/CSS, JavaScript, React/Vue.js
+    <br/>
+                            ●	Back-end Development: Laravel, Go and Node JS
+    <br/>
+                            ●	Database Design & Integration: MySQL, PostgreSQL , MongoDB
+    <br/>
+                            ●	Deployment and Server Management
+    </span>
+
+                            <span class="block">
+                            Project Highlights:
+                            ●	Picca: Wrote and managed API resources used by front-end developers increasing team efficiency by 33%.
+                                <br/>
+                            ●	WritersGig: Architected a scalable platform that managed time-sensitive updates such as content changes and database upgrades.
+                                <br/>
+                            ●	Freexit: Automated deployments, cutting deployment time by 30%, and reducing system downtime by 20% for
+improved reliability and scalability.
+                                 </span>
+                            <br/>
+                            I'm driven to deliver solutions that exceed expectations. Whether you need a dynamic website, a complex web application, or optimization of your existing digital presence, I'm your go-to resource for impactful results.
+                         <span class="block">    Let's collaborate – I'm ready to bring your next web project to life! </span>
+
                         </p>
                         <!-- <p
                             class="lg:max-w-lg mb-6 font-normal text-gray-900 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-300"
@@ -59,7 +70,7 @@ onMounted(() => {
                             collaborated with cross-functional teams.
                         </p> -->
                     </div>
-                    <div class="lg:mt-0 lg:col-span-5 lg:flex">
+                    <div class="lg:mt-0 lg:col-span-5 max-h-[40em] lg:flex">
                         <img
                             src="/images/Ebuka.jpeg"
                             alt="lorenzo"
@@ -205,6 +216,42 @@ onMounted(() => {
                                 2021 - March 2022
                             </p>
                         </li>
+
+
+
+                        <li class="ml-6 pb-5">
+                            <span
+                                class="absolute flex items-center justify-center w-6 h-6 bg-gray-100 rounded-full -left-3 ring-8 ring-white dark:ring-gray-900 dark:bg-gray-900"
+                            >
+                                <svg
+                                    class="w-2.5 h-2.5 text-gray-800 dark:text-gray-300"
+                                    aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"
+                                >
+                                    <path
+                                        d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"
+                                    />
+                                </svg>
+                            </span>
+                            <h3
+                                class="mb-1 text-lg font-semibold text-gray-900 dark:text-white"
+                            >
+                                Campus Innovation Hub
+                            </h3>
+                            <h4
+                                class="mb-1 text-base font-medium text-gray-900 dark:text-white"
+                            >
+                                Web development Instructor
+                            </h4>
+                            <p
+                                class="text-base font-normal text-gray-500 dark:text-gray-400"
+                            >
+                                January 2020 – August 2021
+                            </p>
+                        </li>
+
                         <li class="ml-6 pb-5">
                             <span
                                 class="absolute flex items-center justify-center w-6 h-6 bg-gray-100 rounded-full -left-3 ring-8 ring-white dark:ring-gray-900 dark:bg-gray-900"
@@ -237,6 +284,9 @@ onMounted(() => {
                                 June 2019 – December 2019
                             </p>
                         </li>
+
+
+
                     </ol>
                 </div>
             </div>

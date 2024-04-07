@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Interface\IArticleService;
 use Illuminate\Http\Request;
+use App\Traits\ApiResponse;
 
 class ArticleController extends Controller
 {
+
+    use ApiResponse;
     public function __construct(IArticleService $articleService)
     {
         $this->articleService = $articleService;
@@ -15,9 +18,10 @@ class ArticleController extends Controller
     public function create_posts(Request $request)
     {
         try {
-            //code...
+          $result =  $this->articleService->create_posts($request);
+          return $this->success("created post successfully",$result,201);
         } catch (\Throwable $th) {
-            //throw $th;
+            return  $this->fail($th->getMessage());
         }
     }
 

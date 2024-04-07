@@ -3,7 +3,6 @@ import { useEditorStore } from "./../../../store/index.js";
 import { QuillEditor } from "@vueup/vue-quill";
 import { watch, ref } from "vue";
 const editorStore = useEditorStore();
-
 </script>
 
 
@@ -32,10 +31,19 @@ const editorStore = useEditorStore();
             class="h-[20em]"
         />
         <button
+            v-if="!editorStore.isLoading"
             class="p-3 px-6 pt-4 text-white text-center mt-4 mx-auto bg-blue-500 rounded-btn block w-full max-w-[15em]"
-            @click="editorStore.getEditorContent"
+            @click.prevent="editorStore.submitPost"
         >
             Submit
+        </button>
+
+        <button
+            v-if="editorStore.isLoading"
+            class="p-3 px-6 pt-4 text-white text-center mt-4 mx-auto bg-blue-200 rounded-btn block w-full max-w-[15em]"
+            disabled
+        >
+            Please Wait ....
         </button>
     </div>
 </template>

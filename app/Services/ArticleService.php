@@ -1,10 +1,16 @@
 <?php
 namespace App\Services;
+use App\Interface\IArticleRepository;
 use Illuminate\Http\Request;
 use Validator;
 
 class  ArticleService implements \App\Interface\IArticleService
 {
+
+    public  function __construct(IArticleRepository $articleRepository)
+    {
+        $this->articleRepository = $articleRepository;
+    }
     public function create_posts(Request $request){
         $validator = Validator::make($request->all(),[
             "title"=>"required",
@@ -15,7 +21,7 @@ class  ArticleService implements \App\Interface\IArticleService
             throw new \App\Exceptions\CustomValidationException($validator);
         }
 
-        return $request;
+        return $this->articleRepository->create_posts((object)$request->all());
     }
 
 

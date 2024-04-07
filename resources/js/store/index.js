@@ -23,7 +23,7 @@ export const useEditorStore = defineStore('editorStore', () => {
             isLoading.value = true
             let data = {
                 title: title.value,
-                post: JSON.stringify(editorContent.value)
+                post: editorContent.value
             }
 
             let response = await axios.post('/api/post-article', data)
@@ -32,14 +32,13 @@ export const useEditorStore = defineStore('editorStore', () => {
             isLoading.value = false
             isError.value = true
 
-            if(error.response){
-             console.log(error)
+            if (error.response) {
+                console.log(error)
 
-             errorMessage.value = error.response.data.error
-            }else{
+                errorMessage.value = error.response.data.error
+            } else {
                 errorMessage.value = 'an unexpected error occured'
             }
-        
         } finally {
             isLoading.value = false
         }
@@ -59,7 +58,7 @@ export const useEditorStore = defineStore('editorStore', () => {
                     { indent: '-1' },
                     { indent: '+1' }
                 ],
-                ['link', 'image', 'video'],
+              //  ['link', 'image', 'video'],
                 ['clean']
             ]
         }

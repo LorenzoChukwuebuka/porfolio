@@ -40,7 +40,6 @@ currentDate.value = new Date().getFullYear();
                     </li>
                     <li>
                         <a
-                            target="_blank"
                             href="mailto:lawrenceobi2@gmail.com"
                             class="mr-4 hover:underline md:mr-6"
                             >Mail</a

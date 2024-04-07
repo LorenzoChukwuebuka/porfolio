@@ -11,7 +11,10 @@ const editorStore = useEditorStore();
         <div
             class="rounded-badge mx-auto mt-10 bg-white shadow-sm overflow-hidden h-42 p-4 w-full m:w-full"
         >
-            <error-component v-if="editorStore.isError" :errorMessage="editorStore.errorMessage"></error-component>
+            <error-component
+                v-if="editorStore.isError"
+                :errorMessage="editorStore.errorMessage"
+            ></error-component>
             <h1 class="text-lg font-semibold text-blue-500">Create Articles</h1>
 
             <label class="form-control w-full max-w-[20em] mt-1 mb-3">

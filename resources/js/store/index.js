@@ -13,6 +13,8 @@ export const useEditorStore = defineStore('editorStore', () => {
     const isLoading = ref(false)
     const errorMessage = ref('')
     const isError = ref(false)
+    const isSuccess = ref(false)
+    const successMessage = ref("")
 
     const getEditorContent = () => {
         console.log('Editor Content:', editorContent.value)
@@ -27,7 +29,8 @@ export const useEditorStore = defineStore('editorStore', () => {
             }
 
             let response = await axios.post('/api/post-article', data)
-            console.log(response.data)
+            isSuccess.value =  true
+            successMessage.value = response.data.message
         } catch (error) {
             isLoading.value = false
             isError.value = true
@@ -58,7 +61,7 @@ export const useEditorStore = defineStore('editorStore', () => {
                     { indent: '-1' },
                     { indent: '+1' }
                 ],
-              //  ['link', 'image', 'video'],
+                ['link', 'image', 'video'],
                 ['clean']
             ]
         }
@@ -72,6 +75,7 @@ export const useEditorStore = defineStore('editorStore', () => {
         submitPost,
         isLoading,
         errorMessage,
-        isError
+        isError,
+        isSuccess,successMessage
     }
 })

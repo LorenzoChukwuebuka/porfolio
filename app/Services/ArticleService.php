@@ -26,7 +26,13 @@ class  ArticleService implements \App\Interface\IArticleService
 
 
     public function get_all_posts(){
+          $result = $this->articleRepository->get_all_posts();
 
+          if($result->count()  == 0){
+              throw new \Exception("no records found");
+          }
+
+          return $result;
     }
 
 

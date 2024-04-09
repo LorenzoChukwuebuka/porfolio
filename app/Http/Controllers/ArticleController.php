@@ -27,7 +27,12 @@ class ArticleController extends Controller
 
     public function get_all_posts()
     {
-
+        try {
+         $result = $this->articleService->get_all_posts();
+         return $this->success("all posts retrieved",$result,200);
+        }catch (\Throwable $th){
+            return  $this->fail($th->getMessage());
+        }
     }
 
     public function update_posts(Request $request, $id)

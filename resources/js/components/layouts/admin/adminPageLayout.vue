@@ -11,7 +11,7 @@
                 <p
                     class="text-md pt-2 pb-2 px-2 py-1 rounded-md text-[rgb(102,112,133)] font-medium w-full"
                 >
-                    <router-link to="">
+                    <router-link to="/next/admin-dash">
                         <i class="bi bi-grid"></i> Dashboard
                     </router-link>
                 </p>
@@ -102,5 +102,4 @@
         </div>
     </div>
 </template>
-  
-  
+

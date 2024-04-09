@@ -21,6 +21,7 @@ import ArticleComponent from './components/pages/ArticleComponent.vue'
 import adminArticle from './components/pages/admin/adminArticles.vue'
 import ErrorComponent from "./components/errorSuccess/ErrorComponent.vue"
 import AppComponent from "./components/App.vue"
+import SuccessComponent from "@/components/errorSuccess/SuccessComponent.vue";
 import { createPinia } from 'pinia';
 
 import router from './router'
@@ -42,6 +43,7 @@ app.component('home-component', HomeComponent)
     .component('QuillEditor', QuillEditor)
     .component('app',AppComponent)
     .component('error-component',ErrorComponent)
+    .component('success-component',SuccessComponent)
 
 /**
  * The following block of code may be used to automatically register your

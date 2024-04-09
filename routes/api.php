@@ -21,3 +21,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::post("/post-article",[\App\Http\Controllers\ArticleController::class,'create_posts']);
+Route::get("/get-article",[\App\Http\Controllers\ArticleController::class,'get_all_posts']);

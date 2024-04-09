@@ -2,6 +2,7 @@
 import { useEditorStore } from "./../../../store/index.js";
 import { QuillEditor } from "@vueup/vue-quill";
 import { watch, ref } from "vue";
+import SuccessComponent from "@/components/errorSuccess/SuccessComponent.vue";
 const editorStore = useEditorStore();
 </script>
 
@@ -15,6 +16,8 @@ const editorStore = useEditorStore();
                 v-if="editorStore.isError"
                 :errorMessage="editorStore.errorMessage"
             ></error-component>
+
+            <success-component v-if="editorStore.isSuccess" :successMessage="editorStore.successMessage"></success-component>
             <h1 class="text-lg font-semibold text-blue-500">Create Articles</h1>
 
             <label class="form-control w-full max-w-[20em] mt-1 mb-3">

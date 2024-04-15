@@ -16,4 +16,6 @@ interface IArticleService
 
     public function update_view($postId);
 
+    public  function get_post_by_id($id);
+
 }

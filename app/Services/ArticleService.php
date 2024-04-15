@@ -40,6 +40,17 @@ class  ArticleService implements \App\Interface\IArticleService
 
     }
 
+    public  function get_post_by_id($id)
+    {
+        $result = $this->articleRepository->get_post_by_id($id);
+
+        if($result == null){
+            throw new \Exception("no records found");
+        }
+
+        return $result;
+    }
+
 
     public function delete_posts($id){
 

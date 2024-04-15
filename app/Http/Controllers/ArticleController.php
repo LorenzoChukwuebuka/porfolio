@@ -35,6 +35,17 @@ class ArticleController extends Controller
         }
     }
 
+
+    public  function get_post_by_id($id){
+        try {
+            $result = $this->articleService->get_post_by_id($id);
+            return $this->success("post retrieved",$result,200);
+        }catch (\Throwable $th){
+            return  $this->fail($th->getMessage());
+        }
+    }
+
+
     public function update_posts(Request $request, $id)
     {
         try {

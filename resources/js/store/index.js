@@ -1,11 +1,9 @@
 import { defineStore } from 'pinia'
-import { ref, reactive } from 'vue'
+import { ref, reactive, onMounted } from 'vue'
 import { QuillEditor } from '@vueup/vue-quill'
 import axios from 'axios'
 
-export const useArticleStore = defineStore('articlestore', {})
-
-export const useAuthStore = defineStore('authstore', {})
+export const useAuthStore = defineStore('authstore', () => {})
 
 export const useEditorStore = defineStore('editorStore', () => {
     const editorContent = ref('')
@@ -14,7 +12,9 @@ export const useEditorStore = defineStore('editorStore', () => {
     const errorMessage = ref('')
     const isError = ref(false)
     const isSuccess = ref(false)
-    const successMessage = ref("")
+    const successMessage = ref('')
+    const articles = ref([])
+    const article = ref(null)
 
     const getEditorContent = () => {
         console.log('Editor Content:', editorContent.value)
@@ -29,7 +29,7 @@ export const useEditorStore = defineStore('editorStore', () => {
             }
 
             let response = await axios.post('/api/post-article', data)
-            isSuccess.value =  true
+            isSuccess.value = true
             successMessage.value = response.data.message
         } catch (error) {
             isLoading.value = false
@@ -46,6 +46,48 @@ export const useEditorStore = defineStore('editorStore', () => {
             isLoading.value = false
         }
     }
+
+    const formatDate = dateString => {
+        const date = new Date(dateString)
+        const options = { month: 'long', day: 'numeric', year: 'numeric' }
+        return date.toLocaleDateString('en-US', options)
+    }
+
+    const getArticles = async () => {
+        try {
+            let response = await axios.get('/api/get-article')
+            articles.value = response.data.payload.data
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    const getArticle = async id => {
+        try {
+            let response = await axios.get('/api/get-post/' + id)
+            article.value = response.data.payload
+            console.log(article.value)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    function generateSlug (title) {
+        // Convert title to lowercase and replace spaces with dashes
+        let slug = title.toLowerCase().replace(/\s+/g, '-')
+
+        // Remove special characters
+        slug = slug.replace(/[^\w-]/g, '')
+
+        // Trim dashes from the beginning and end of the slug
+        slug = slug.replace(/^-+|-+$/g, '')
+
+        return slug
+    }
+
+    onMounted(() => {
+        getArticles()
+    })
 
     const editorOptions = reactive({
         // debug: 'info',
@@ -76,6 +118,13 @@ export const useEditorStore = defineStore('editorStore', () => {
         isLoading,
         errorMessage,
         isError,
-        isSuccess,successMessage
+        isSuccess,
+        successMessage,
+        articles,
+        getArticles,
+        formatDate,
+        generateSlug,
+        getArticle,
+        article
     }
 })

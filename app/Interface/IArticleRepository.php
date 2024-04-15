@@ -12,6 +12,8 @@ interface IArticleRepository
 
     public function update_posts(object $data, $id);
 
+    public  function get_post_by_id($id);
+
     public function delete_posts($id);
 
     public function update_view($postId);

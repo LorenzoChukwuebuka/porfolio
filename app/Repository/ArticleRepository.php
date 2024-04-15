@@ -26,6 +26,11 @@ class ArticleRepository implements  IArticleRepository {
         return $this->articleModel::find($id);
     }
 
+    public  function get_post_by_id($id)
+    {
+        return $this->articleModel::find($id);
+    }
+
     public function delete_posts($id){}
 
     public function update_view($postId){}

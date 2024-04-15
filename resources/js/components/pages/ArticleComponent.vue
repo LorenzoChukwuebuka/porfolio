@@ -1,16 +1,36 @@
+<script setup>
+import { useEditorStore } from "../../store";
+const articleStore = useEditorStore();
+</script>
+
 <template>
     <nav-component></nav-component>
-    <section class="bg-white dark:bg-gray-900 h-screen">
+    <section class="bg-white dark:bg-gray-900 h-auto">
         <div class="max-w-screen-lg px-4 py-4 lg:py-8 mx-auto">
-            <div class="grid lg:gap-8 xl:gap-0 lg:grid-cols-12">
-                <div class="mr-auto place-self-center lg:col-span-7">
-                    <h1
-                        class="lg:max-w-2xl mb-6 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white"
+            <section class="h-screen">
+                <div
+                    v-for="article in articleStore.articles"
+                    :key="article.id"
+                    class="grid lg:grid-cols-12 py-6 border-b border-gray-200 dark:border-gray-700"
+                >
+                    <div
+                        class="mb-6 lg:col-span-4 text-base font-normal text-gray-800 dark:text-gray-400"
                     >
-                        No posts yet... Coming soon
-                    </h1>
+                        <p>{{ articleStore.formatDate(article.created_at) }}</p>
+                    </div>
+                    <div class="lg:col-span-8 relative">
+                        <a
+                            :href="
+                                '/articles/' +
+                                `${article.id}/` +
+                                articleStore.generateSlug(article.title)
+                            "
+                            class="mb-2 hover:underline text-4xl font-bold dark:text-white"
+                            >{{ article.title }}</a
+                        >
+                    </div>
                 </div>
-            </div>
+            </section>
         </div>
     </section>
 </template>

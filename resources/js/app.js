@@ -19,10 +19,11 @@ import ProjectComponent from './components/pages/ProjectComponent.vue'
 import FooterComponent from './components/layouts/FooterComponent.vue'
 import ArticleComponent from './components/pages/ArticleComponent.vue'
 import adminArticle from './components/pages/admin/adminArticles.vue'
-import ErrorComponent from "./components/errorSuccess/ErrorComponent.vue"
-import AppComponent from "./components/App.vue"
-import SuccessComponent from "@/components/errorSuccess/SuccessComponent.vue";
-import { createPinia } from 'pinia';
+import ErrorComponent from './components/errorSuccess/ErrorComponent.vue'
+import AppComponent from './components/App.vue'
+import ArticleDetailsComponent from './components/pages/ArticleDetailsComponent.vue'
+import SuccessComponent from '@/components/errorSuccess/SuccessComponent.vue'
+import { createPinia } from 'pinia'
 
 import router from './router'
 
@@ -41,9 +42,10 @@ app.component('home-component', HomeComponent)
     .component('article-component', ArticleComponent)
     .component('admin-article-component', adminArticle)
     .component('QuillEditor', QuillEditor)
-    .component('app',AppComponent)
-    .component('error-component',ErrorComponent)
-    .component('success-component',SuccessComponent)
+    .component('app', AppComponent)
+    .component('error-component', ErrorComponent)
+    .component('success-component', SuccessComponent)
+    .component('article-details-component', ArticleDetailsComponent)
 
 /**
  * The following block of code may be used to automatically register your

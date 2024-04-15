@@ -3,7 +3,46 @@ import { ref, reactive, onMounted } from 'vue'
 import { QuillEditor } from '@vueup/vue-quill'
 import axios from 'axios'
 
-export const useAuthStore = defineStore('authstore', () => {})
+export const useAuthStore = defineStore('authstore', () => {
+    const formValues = ref({ email: '', password: '' })
+    const isLoading = ref(false)
+    const isError = ref(false)
+    const formError = ref(false)
+    const emailInvalid = ref(false)
+    const errorMessage = ref('')
+
+    const isMailValid = email => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+        emailInvalid.value = !emailRegex.test(email)
+    }
+
+    const loginUser = async () => {
+        if (
+            formValues.value.email.trim() === '' ||
+            formValues.value.password.trim() === ''
+        ) {
+            errorMessage.value = 'Invalid Email/Password'
+            formError.value = true
+        }
+
+        try {
+            
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    return {
+        formValues,
+        isLoading,
+        isError,
+        formError,
+        emailInvalid,
+        errorMessage,
+        loginUser,
+        isMailValid
+    }
+})
 
 export const useEditorStore = defineStore('editorStore', () => {
     const editorContent = ref('')
@@ -15,6 +54,7 @@ export const useEditorStore = defineStore('editorStore', () => {
     const successMessage = ref('')
     const articles = ref([])
     const article = ref(null)
+    const page = ref(1)
 
     const getEditorContent = () => {
         console.log('Editor Content:', editorContent.value)
@@ -53,9 +93,19 @@ export const useEditorStore = defineStore('editorStore', () => {
         return date.toLocaleDateString('en-US', options)
     }
 
+    const handlePageChange = direction => {
+        const newPage = page.value + direction
+        if (newPage >= 1) {
+            page.value = newPage
+            getArticles()
+        }
+    }
+
     const getArticles = async () => {
         try {
-            let response = await axios.get('/api/get-article')
+            let response = await axios.get(
+                `/api/get-article?page=${page.value}`
+            )
             articles.value = response.data.payload.data
         } catch (error) {
             console.log(error)
@@ -125,6 +175,7 @@ export const useEditorStore = defineStore('editorStore', () => {
         formatDate,
         generateSlug,
         getArticle,
-        article
+        article,
+        handlePageChange
     }
 })

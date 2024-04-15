@@ -17,7 +17,10 @@ const editorStore = useEditorStore();
                 :errorMessage="editorStore.errorMessage"
             ></error-component>
 
-            <success-component v-if="editorStore.isSuccess" :successMessage="editorStore.successMessage"></success-component>
+            <success-component
+                v-if="editorStore.isSuccess"
+                :successMessage="editorStore.successMessage"
+            ></success-component>
             <h1 class="text-lg font-semibold text-blue-500">Create Articles</h1>
 
             <label class="form-control w-full max-w-[20em] mt-1 mb-3">
@@ -30,7 +33,8 @@ const editorStore = useEditorStore();
                     type="text"
                     v-model="editorStore.title"
                     class="ml-1 p-2 border w-full border-gray-300 rounded-btn"
-                    placeholder=""
+                    placeholder="title"
+                    required
                 />
             </label>
 
@@ -38,13 +42,16 @@ const editorStore = useEditorStore();
                 v-model:content="editorStore.editorContent"
                 :options="editorStore.editorOptions"
                 ref="myQuillEditor"
-                class="h-[20em]"
+                class="h-[27em]"
                 content-type="html"
             />
+
+            <hr class="p-2" />
             <button
                 v-if="!editorStore.isLoading"
                 class="p-3 px-6 pt-4 text-white text-center mt-4 mx-auto bg-blue-500 rounded-btn block w-full max-w-[15em]"
                 @click.prevent="editorStore.submitPost"
+                type="submit"
             >
                 Submit
             </button>

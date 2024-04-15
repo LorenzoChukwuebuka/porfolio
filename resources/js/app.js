@@ -24,6 +24,9 @@ import AppComponent from './components/App.vue'
 import ArticleDetailsComponent from './components/pages/ArticleDetailsComponent.vue'
 import SuccessComponent from '@/components/errorSuccess/SuccessComponent.vue'
 import { createPinia } from 'pinia'
+import { QuillEditor } from '@vueup/vue-quill'
+import '@vueup/vue-quill/dist/vue-quill.snow.css'
+import Login from './components/pages/admin/login.vue'
 
 import router from './router'
 
@@ -31,8 +34,7 @@ const pinia = createPinia()
 
 const app = createApp({})
 
-import { QuillEditor } from '@vueup/vue-quill'
-import '@vueup/vue-quill/dist/vue-quill.snow.css'
+
 
 app.use(router).use(pinia)
 app.component('home-component', HomeComponent)
@@ -46,6 +48,7 @@ app.component('home-component', HomeComponent)
     .component('error-component', ErrorComponent)
     .component('success-component', SuccessComponent)
     .component('article-details-component', ArticleDetailsComponent)
+    .component('login-component',Login)
 
 /**
  * The following block of code may be used to automatically register your

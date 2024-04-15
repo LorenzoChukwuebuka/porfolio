@@ -1,3 +1,9 @@
+<script setup>
+import { useAuthStore } from "../../../store";
+const authStore = useAuthStore()
+
+</script>
+
 <template>
     <main
         class="fixed top-0 left-0 w-full h-screen overflow-y-auto bg-[rgb(236,245,255)]"
@@ -10,7 +16,7 @@
                     <h1
                         class="text-center text-blue-500 text-2xl sm:text-3xl rounded-badge mx-auto"
                     >
-                        Cindy
+                    Lorenzo 
                     </h1>
                 </div>
                 <div class="mx-auto mt-4 flex flex-col items-center">
@@ -19,17 +25,9 @@
                             class="text-lg sm:text-2xl text-blue-500 font-semibold mr-2"
                             >Sign In</span
                         >
-                        <span
-                            class="inline-flex bg-blue-50 rounded-full text-sm sm:text-lg p-1 sm:p-3 text-blue-400"
-                        >
-                            <span class="w-max">as a super Admin</span>
-                        </span>
+                       
                     </div>
-                    <span
-                        class="block text-center mt-3 text-[rgb(102,112,133)] text-sm sm:text-base"
-                        >Welcome back to CindyAI. Please signin to access your
-                        account</span
-                    >
+                     
                 </div>
                 <div class="mx-auto">
                     <label class="form-control w-full mt-5 max-w-xs">
@@ -42,8 +40,12 @@
                             type="email"
                             placeholder=""
                             class="input input-bordered w-full sm:w-80"
+                            @blur="
+                                superAdminstore.isMailValid(
+                                    superAdminstore.formValues.email
+                                )"
                         />
-                        <small class="text-center text-red-500">
+                        <small class="text-center text-red-500" v-if="authStore.emailInvalid">
                             Invalid Email
                         </small>
                     </label>

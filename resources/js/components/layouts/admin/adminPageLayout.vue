@@ -26,7 +26,7 @@
                 <p
                     class="text-medium space-x-1 pt-2 pb-2 px-2 py-1 text-[rgb(102,112,133)] rounded-md font-medium w-full"
                 >
-                    <router-link to="">
+                    <router-link to="/next/admin-view-article">
                         <i class="bi bi-book"></i> View Articles
                     </router-link>
                 </p>
@@ -34,7 +34,7 @@
                 <p
                     class="text-medium space-x-1 pt-2 pb-2 px-2 py-1 text-[rgb(102,112,133)] rounded-md font-medium w-full"
                 >
-                    <router-link to="/spa/settings-management">
+                    <router-link to="">
                         <i class="bi bi-gear"></i> Setting
                     </router-link>
                 </p>

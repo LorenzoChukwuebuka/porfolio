@@ -5,7 +5,10 @@ const articleStore = useEditorStore();
 
 <template>
     <nav-component></nav-component>
-    <section class="bg-white dark:bg-gray-900 h-auto">
+    <section
+        class="bg-white dark:bg-gray-900 h-auto"
+        v-if="articleStore.articles.length > 0"
+    >
         <div class="max-w-screen-lg px-4 py-4 lg:py-8 mx-auto">
             <section class="h-screen">
                 <div
@@ -30,6 +33,17 @@ const articleStore = useEditorStore();
                         >
                     </div>
                 </div>
+            </section>
+        </div>
+    </section>
+
+    <section
+        class="bg-white dark:bg-gray-900 h-auto"
+        v-if="articleStore.articles.length == 0"
+    >
+        <div class="max-w-screen-lg px-4 py-4 lg:py-8 mx-auto">
+            <section class="h-screen">
+                <h1 class="text-4xl text-white"> No posts yet... coming soon </h1>
             </section>
         </div>
     </section>

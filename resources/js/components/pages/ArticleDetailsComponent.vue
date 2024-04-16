@@ -13,7 +13,7 @@ articleStore.getArticle(id);
 <template>
     <nav-component></nav-component>
 
-    <section class="bg-white dark:bg-gray-900 dark:text-white h-auto">
+    <section class="bg-white dark:bg-gray-900 dark:text-white h-screen overflow-y-auto">
         <div class="max-w-screen-lg px-4 py-4 lg:py-8 mx-auto">
             <div class="w-full md:flex">
                 <div class="w-full px-2 lg:px-6">

@@ -19,7 +19,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-
+Route::post("/login",[Controllers\AuthController::class,'login']);
 Route::post("/post-article",[\App\Http\Controllers\ArticleController::class,'create_posts']);
 Route::get("/get-article",[\App\Http\Controllers\ArticleController::class,'get_all_posts']);
 Route::get('/get-post/{id}',[Controllers\ArticleController::class,'get_post_by_id']);

@@ -27,6 +27,7 @@ import { createPinia } from 'pinia'
 import { QuillEditor } from '@vueup/vue-quill'
 import '@vueup/vue-quill/dist/vue-quill.snow.css'
 import Login from './components/pages/admin/login.vue'
+import VueCookies from 'vue-cookies'
 
 import router from './router'
 
@@ -36,7 +37,7 @@ const app = createApp({})
 
 
 
-app.use(router).use(pinia)
+app.use(router).use(pinia).use(VueCookies)
 app.component('home-component', HomeComponent)
     .component('nav-component', NavComponent)
     .component('project-component', ProjectComponent)

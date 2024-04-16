@@ -11,6 +11,13 @@ class ArticleRepository implements  IArticleRepository {
     public function __construct(Posts $articlesModel){
         $this->articleModel = $articlesModel;
     }
+
+
+    public  function check_if_title_exists($title)
+    {
+         return $this->articleModel::where('title',$title)->first();
+    }
+
     public function create_posts(object $data){
         return $this->articleModel::create([
             "title"=>$data->title,

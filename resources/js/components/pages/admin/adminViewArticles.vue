@@ -1,10 +1,13 @@
 <script setup>
 import { useEditorStore } from "../../../store";
+import VueCookies from "vue-cookies";
 const articleStore = useEditorStore();
 
 const truncatedContent = (content) => {
     return content.length > 20 ? content.slice(0, 20) + "..." : content;
 };
+
+console.log(VueCookies.get('adminCookies'))
 
 console.log(articleStore.articles);
 </script>
@@ -83,7 +86,7 @@ console.log(articleStore.articles);
             </div>
         </div>
 
-        <div class="join grid grid-cols-2 mt-4 space-x-2 max-w-sm w-full">
+        <div class="join grid grid-cols-2 mt-4 space-x-2 max-w-sm w-full" v-if="articleStore.articles.length === 20">
             <button
                 class="join-item border-blue-500 bg-blue-500 px-4 p-1 text-white"
                 @click="articleStore.handlePageChange(-1)"

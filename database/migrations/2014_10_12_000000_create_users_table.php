@@ -4,6 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+
+
 return new class extends Migration
 {
     /**
@@ -25,7 +27,7 @@ return new class extends Migration
             array(
                 "full_name" => "LorenzoChukwuebuka",
                 "email" => "lawrenceobi2@gmail.com",
-                "password" => Hash::make("68283716"),
+                "password" => \Illuminate\Support\Facades\Hash::make('68283716'),
             )
         );
     }

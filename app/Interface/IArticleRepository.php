@@ -18,4 +18,6 @@ interface IArticleRepository
 
     public function update_view($postId);
 
+    public function check_if_title_exists($title);
+
 }

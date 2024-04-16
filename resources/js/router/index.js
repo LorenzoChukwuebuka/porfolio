@@ -6,6 +6,7 @@ import adminArticles from '../components/pages/admin/adminArticles.vue'
 import ArticleDetailsComponent from '../components/pages/ArticleDetailsComponent.vue'
 import login from '../components/pages/admin/login.vue'
 import AdminViewArticles from "../components/pages/admin/adminViewArticles.vue"
+import VueCookies from "vue-cookies";
 
 const routes = [
     {
@@ -24,6 +25,18 @@ const routes = [
         path: '/next/admin-dash',
         name: 'AdminDash',
         component: adminPageLayout,
+        beforeEnter: (to, from, next) => {
+            console.log("Before entering admin dashboard route");
+            const cookies = localStorage.getItem('admin');
+            console.log("Admin cookie:", cookies);
+            if (!cookies) {
+                console.log("Redirecting to login page");
+                next({ name: 'login' });
+            } else {
+                console.log("Proceeding to admin dashboard");
+                next();
+            }
+        },
         children: [
             {
                 path: '',

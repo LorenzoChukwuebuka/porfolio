@@ -21,6 +21,14 @@ class  ArticleService implements \App\Interface\IArticleService
             throw new \App\Exceptions\CustomValidationException($validator);
         }
 
+        #check if title already exists
+
+        $titleExists = $this->articleRepository->check_if_title_exists($request->title);
+
+        if($titleExists != null){
+            throw  new \Exception("Title already exists");
+        }
+
         return $this->articleRepository->create_posts((object)$request->all());
     }
 

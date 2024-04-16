@@ -2,6 +2,8 @@ import { defineStore } from 'pinia'
 import { ref, reactive, onMounted } from 'vue'
 import { QuillEditor } from '@vueup/vue-quill'
 import axios from 'axios'
+import { useRouter } from 'vue-router'
+import VueCookies from 'vue-cookies'
 
 export const useAuthStore = defineStore('authstore', () => {
     const formValues = ref({ email: '', password: '' })
@@ -10,6 +12,7 @@ export const useAuthStore = defineStore('authstore', () => {
     const formError = ref(false)
     const emailInvalid = ref(false)
     const errorMessage = ref('')
+    const route = useRouter()
 
     const isMailValid = email => {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
@@ -26,9 +29,21 @@ export const useAuthStore = defineStore('authstore', () => {
         }
 
         try {
-            
+            isLoading.value = true
+            let response = await axios.post('/api/login', formValues.value)
+            localStorage.setItem('admin', response.data.payload.token)
+            route.push('/next/admin-dash')
         } catch (error) {
+            isLoading.value = false
+            isError.value = true
             console.log(error)
+            if (error.response) {
+                errorMessage.value = error.response.data.error
+            } else {
+                errorMessage.value = 'an unexpected error occurred'
+            }
+        } finally {
+            isLoading.value = false
         }
     }
 

@@ -70,6 +70,7 @@ export const useEditorStore = defineStore('editorStore', () => {
     const articles = ref([])
     const article = ref(null)
     const page = ref(1)
+    const view = ref(1)
 
     const getEditorContent = () => {
         console.log('Editor Content:', editorContent.value)
@@ -137,6 +138,15 @@ export const useEditorStore = defineStore('editorStore', () => {
         }
     }
 
+    const increaseView = async (postId) => {
+         try {
+            let response = await axios.put('/api/update-view/'+postId)
+            console.log(response.data)
+         } catch (error) {
+            console.log(error)
+         }
+    }
+
     function generateSlug (title) {
         // Convert title to lowercase and replace spaces with dashes
         let slug = title.toLowerCase().replace(/\s+/g, '-')
@@ -191,6 +201,7 @@ export const useEditorStore = defineStore('editorStore', () => {
         generateSlug,
         getArticle,
         article,
-        handlePageChange
+        handlePageChange,
+        increaseView
     }
 })

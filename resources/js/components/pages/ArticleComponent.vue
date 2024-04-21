@@ -19,10 +19,15 @@ const articleStore = useEditorStore();
                     <div
                         class="mb-6 lg:col-span-4 text-base font-normal text-gray-800 dark:text-gray-400"
                     >
-                        <p>{{ articleStore.formatDate(article?.created_at) }}</p>
+                        <p>
+                            {{ articleStore.formatDate(article?.created_at) }}
+                        </p>
                     </div>
                     <div class="lg:col-span-8 relative">
                         <a
+                            @click.prevent="
+                                articleStore.increaseView(article?.id)
+                            "
                             :href="
                                 '/articles/' +
                                 `${article?.id}/` +
@@ -35,7 +40,8 @@ const articleStore = useEditorStore();
                 </div>
 
                 <div
-                    class="join grid grid-cols-2 mt-4 space-x-2 self-end max-w-sm w-full" v-if="articleStore?.articles.length === 20"
+                    class="join grid grid-cols-2 mt-4 space-x-2 self-end max-w-sm w-full"
+                    v-if="articleStore?.articles.length === 20"
                 >
                     <button
                         class="join-item border-blue-500 bg-blue-500 px-4 p-1 text-white"

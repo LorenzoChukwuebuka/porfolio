@@ -66,7 +66,7 @@ class  ArticleService implements \App\Interface\IArticleService
 
     public  function update_view($postId)
     {
-
+       return $this->articleRepository->update_view($postId);
     }
 
 }

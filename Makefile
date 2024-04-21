@@ -13,7 +13,14 @@ install:
 
 build:
 		$(SUDO) npm run build
-git:
+git_push:
 		${SUDO} git add .
 		${SUDO} git commit -m "made some changes"
 		${SUDO} git push
+
+git_pull:
+		${SUDO} git add .
+		${SUDO} git commit -m "made some changes"
+		${SUDO} git push
+server_setup: 
+

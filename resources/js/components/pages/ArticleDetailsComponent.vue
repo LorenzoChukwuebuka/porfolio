@@ -34,7 +34,7 @@ useHead({
     <nav-component></nav-component>
 
     <section
-        class="bg-white dark:bg-gray-900 dark:text-white h-screen overflow-y-auto"
+        class="bg-white dark:bg-gray-900 dark:text-white h-screen "
     >
         <div class="max-w-screen-lg px-4 py-4 lg:py-8 mx-auto">
             <div class="w-full md:flex">

@@ -11,9 +11,9 @@ install:
 		$(SUDO) composer install
 		$(SUDO) npm install
 		
-
 build:
 		$(SUDO) npm run build
+
 git_push:
 		${SUDO} git add .
 		${SUDO} git commit -m "made some changes"
@@ -23,7 +23,7 @@ git_pull:
 		${SUDO} git add .
 		${SUDO} git commit -m "made some changes"
 		${SUDO} git pull
-		
+
 server_setup:
 			@echo "migrating...."
 			${SUDO} php artisan migrate

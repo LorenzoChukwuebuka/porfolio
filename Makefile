@@ -10,6 +10,7 @@ endif
 install:
 		$(SUDO) composer install
 		$(SUDO) npm install
+		
 
 build:
 		$(SUDO) npm run build
@@ -21,6 +22,11 @@ git_push:
 git_pull:
 		${SUDO} git add .
 		${SUDO} git commit -m "made some changes"
-		${SUDO} git push
-server_setup: 
+		${SUDO} git pull
+server_setup:
+			@echo "migrating...."
+			${SUDO} php artisan migrate
+			@echo "restarting php engine...."
+			${SUDO} systemctl restart php8.1-fpm
+			${SUDO} systemctl restart nginx
 

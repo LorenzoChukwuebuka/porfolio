@@ -28,16 +28,17 @@ import { QuillEditor } from '@vueup/vue-quill'
 import '@vueup/vue-quill/dist/vue-quill.snow.css'
 import Login from './components/pages/admin/login.vue'
 import VueCookies from 'vue-cookies'
+import { createHead } from '@vueuse/head'
 
 import router from './router'
 
 const pinia = createPinia()
+const head = createHead()
+
 
 const app = createApp({})
 
-
-
-app.use(router).use(pinia).use(VueCookies)
+app.use(router).use(pinia).use(VueCookies).use(head)
 app.component('home-component', HomeComponent)
     .component('nav-component', NavComponent)
     .component('project-component', ProjectComponent)
@@ -49,7 +50,7 @@ app.component('home-component', HomeComponent)
     .component('error-component', ErrorComponent)
     .component('success-component', SuccessComponent)
     .component('article-details-component', ArticleDetailsComponent)
-    .component('login-component',Login)
+    .component('login-component', Login)
 
 /**
  * The following block of code may be used to automatically register your

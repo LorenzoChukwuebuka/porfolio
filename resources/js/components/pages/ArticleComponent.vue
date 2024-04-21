@@ -7,7 +7,7 @@ const articleStore = useEditorStore();
     <nav-component></nav-component>
     <section
         class="bg-white dark:bg-gray-900 h-auto"
-        v-if="articleStore.articles.length > 0"
+        v-if="articleStore?.articles.length > 0"
     >
         <div class="max-w-screen-lg px-4 py-4 lg:py-8 mx-auto">
             <section class="h-screen">
@@ -19,23 +19,23 @@ const articleStore = useEditorStore();
                     <div
                         class="mb-6 lg:col-span-4 text-base font-normal text-gray-800 dark:text-gray-400"
                     >
-                        <p>{{ articleStore.formatDate(article.created_at) }}</p>
+                        <p>{{ articleStore.formatDate(article?.created_at) }}</p>
                     </div>
                     <div class="lg:col-span-8 relative">
                         <a
                             :href="
                                 '/articles/' +
-                                `${article.id}/` +
-                                articleStore.generateSlug(article.title)
+                                `${article?.id}/` +
+                                articleStore.generateSlug(article?.title)
                             "
                             class="mb-2 hover:underline text-4xl font-bold dark:text-white"
-                            >{{ article.title }}</a
+                            >{{ article?.title }}</a
                         >
                     </div>
                 </div>
 
                 <div
-                    class="join grid grid-cols-2 mt-4 space-x-2 self-end max-w-sm w-full" v-if="articleStore.articles.length === 20"
+                    class="join grid grid-cols-2 mt-4 space-x-2 self-end max-w-sm w-full" v-if="articleStore?.articles.length === 20"
                 >
                     <button
                         class="join-item border-blue-500 bg-blue-500 px-4 p-1 text-white"

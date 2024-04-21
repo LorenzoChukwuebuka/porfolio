@@ -53,7 +53,8 @@ onMounted(() => {
                             </span>
 
                             <span class="block">
-                                Project Highlights: ● Picca: Wrote and managed
+                                Project Highlights:
+                                <br /> ● Picca: Wrote and managed
                                 API resources used by front-end developers
                                 increasing team efficiency by 33%.
                                 <br />

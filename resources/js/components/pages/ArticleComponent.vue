@@ -25,7 +25,7 @@ const articleStore = useEditorStore();
                     </div>
                     <div class="lg:col-span-8 relative">
                         <a
-                            @click.prevent="
+                            @click="
                                 articleStore.increaseView(article?.id)
                             "
                             :href="

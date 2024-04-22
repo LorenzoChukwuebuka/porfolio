@@ -48,7 +48,11 @@ class ArticleRepository implements IArticleRepository
     {
         $post = $this->articleModel::find($postId);
 
-        $post->number_of_views = +1;
+        $views = $post->number_of_views;
+
+        $views ++;
+
+        $post->number_of_views = $views;
 
         $post->save();
     }

@@ -26,4 +26,7 @@ class AuthController extends Controller
             return  $this->fail($th->getMessage());
         }
     }
+
+
+     
 }

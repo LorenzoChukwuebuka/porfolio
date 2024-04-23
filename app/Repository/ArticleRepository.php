@@ -50,7 +50,7 @@ class ArticleRepository implements IArticleRepository
 
         $views = $post->number_of_views;
 
-        $views ++;
+        $views++;
 
         $post->number_of_views = $views;
 

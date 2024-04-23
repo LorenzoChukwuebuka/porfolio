@@ -1,9 +1,33 @@
 <script setup>
 import { ref } from "vue";
+import { useRoute } from 'vue-router';
+import axios from 'axios';
 
 const currentDate = ref("");
-
 currentDate.value = new Date().getFullYear();
+
+
+const route = useRoute();
+
+const downloadFile = async (filename) => {
+    try {
+        axios({
+            method: 'get',
+            url: '/api/download-resume/'+filename,
+            responseType: 'arraybuffer',
+        }).then(function(response) {
+            let blob = new Blob([response.data], { type: 'application/pdf' })
+            let link = document.createElement('a')
+            link.href = window.URL.createObjectURL(blob)
+            link.download = 'Report.pdf'
+            link.click()
+        })
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+
 </script>
 <template>
     <footer class="bg-white dark:bg-gray-900">
@@ -43,6 +67,17 @@ currentDate.value = new Date().getFullYear();
                             href="mailto:lawrenceobi2@gmail.com"
                             class="mr-4 hover:underline md:mr-6"
                             >Mail</a
+                        >
+                    </li>
+
+                    <li>
+                        <a
+
+                            href="https://drive.google.com/file/d/1DRO3xhljdtoMfV8HS9xJo_qRytxX9U49/view?usp=sharing"
+                            target="_blank"
+                            class="mr-4 hover:underline md:mr-6"
+                        >Resume</a
+
                         >
                     </li>
                 </ul>

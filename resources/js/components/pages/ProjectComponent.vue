@@ -123,6 +123,30 @@
                         >
                     </div>
                 </div>
+                <div
+                    class="grid lg:grid-cols-12 py-6 border-b border-gray-200 dark:border-gray-700"
+                >
+                    <div
+                        class="mb-6 lg:col-span-4 text-base font-normal text-gray-800 dark:text-gray-400"
+                    >
+                        <p><span class="font-bold">Launched:</span> 2024</p>
+                    </div>
+                    <div class="lg:col-span-8 relative">
+                        <h2 class="mb-2 text-4xl font-bold dark:text-white">
+                            Cindy
+                        </h2>
+                        <h3
+                            class="mb-2 text-xl font-medium text-gray-800 dark:text-white"
+                        >
+                            An AI powered Learning Management System for Schools
+                        </h3>
+                        <a
+                            href="https://getcindy.com"
+                            class="text-base font-medium text-blue-500 dark:text-white"
+                            >https://getcindy.com</a
+                        >
+                    </div>
+                </div>
             </section>
         </div>
     </section>

@@ -28,7 +28,7 @@ class ArticleRepository implements IArticleRepository
 
     public function get_all_posts()
     {
-        return $this->articleModel::paginate(20)->latest();
+        return $this->articleModel::latest()->paginate(20);
     }
 
     public function update_posts(object $data, $id)

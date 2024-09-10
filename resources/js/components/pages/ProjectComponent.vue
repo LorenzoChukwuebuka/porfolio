@@ -96,7 +96,7 @@
                         <a
                             href="https://genswift.papyrus.com.ng"
                             class="text-base font-medium text-blue-500 dark:text-white"
-                        ></a>
+                        >https://genswift.papyrus.com.ng</a>
                     </div>
                 </div>
                 <div
@@ -168,7 +168,7 @@
                         <a
                             href="#"
                             class="text-base font-medium text-blue-500 dark:text-white"
-                            >#</a
+                            ></a
                         >
                     </div>
                 </div>

@@ -73,7 +73,7 @@ const downloadFile = async (filename) => {
                     <li>
                         <a
 
-                            href="https://drive.google.com/file/d/1M0rWM0Ne_m7pZspBspTCTOspBXEwnxtJ/view?usp=sharing"
+                            href="https://drive.google.com/file/d/12nG2aDams3iRPoHEUK4AQawx7KQsA_zO/view?usp=sharing"
                             target="_blank"
                             class="mr-4 hover:underline md:mr-6"
                         >Resume</a

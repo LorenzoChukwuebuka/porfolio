@@ -7,7 +7,6 @@ use App\Models\Posts;
 
 class ArticleRepository implements IArticleRepository
 {
-
     public function __construct(Posts $articlesModel)
     {
         $this->articleModel = $articlesModel;

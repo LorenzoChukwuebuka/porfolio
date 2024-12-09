@@ -61,7 +61,7 @@ const projects = ref([
             <h1 class="text-3xl md:text-4xl font-bold mb-10">
                 Work Experience
             </h1>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <!-- Left Section -->
                 <div class="md:col-span-2">
                     <ul class="space-y-4">

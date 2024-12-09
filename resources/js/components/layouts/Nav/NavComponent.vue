@@ -38,10 +38,10 @@
                 <a href="#hero">Home</a>
             </div>
             <div class="p-2 rounded-full hover:bg-gray-100">
-                <a href="#background">Background</a>
+                <a href="#aboutMe">About</a>
             </div>
             <div class="p-2 rounded-full hover:bg-gray-100">
-                <a href="#aboutMe">About</a>
+                <a href="#background">Background</a>
             </div>
         </div>
     </nav>

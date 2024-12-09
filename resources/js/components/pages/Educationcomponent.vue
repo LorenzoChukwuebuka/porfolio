@@ -3,7 +3,7 @@ import { ref } from "vue";
 
 const educationList = ref([
     {
-        institution: "Federal University of Technology",
+        institution: "Federal University of Technology, Owerri",
         course: "Information Management Technology (B.Tech)",
         period: "2015 – 2020",
     },

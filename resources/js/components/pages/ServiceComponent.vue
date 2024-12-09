@@ -19,7 +19,7 @@ const getRandomAnimation = () => {
 
 <template>
     <div
-        class="min-h-screen bg-black text-white flex flex-col items-center p-2 justify-center px-4"
+        class="min-h-screen bg-black text-white flex flex-col items-center p-2 justify-center px-4" id="background"
     >
         <h1 class="text-orange-500 text-3xl md:text-4xl font-bold mb-8 text-center">
             MY SERVICES

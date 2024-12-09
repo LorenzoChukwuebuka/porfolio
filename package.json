@@ -7,6 +7,7 @@
     },
     "devDependencies": {
         "@popperjs/core": "^2.11.6",
+        "@types/aos": "^3.0.7",
         "@vitejs/plugin-vue": "^4.5.0",
         "autoprefixer": "^10.4.18",
         "axios": "^1.6.4",
@@ -24,6 +25,7 @@
         "@tinymce/tinymce-vue": "^4.0.7",
         "@vueup/vue-quill": "^1.2.0",
         "@vueuse/head": "^2.0.0",
+        "aos": "^3.0.0-beta.6",
         "pinia": "^2.1.7",
         "vue-meta": "^3.0.0-alpha.2",
         "vue-router": "^4.0.13"

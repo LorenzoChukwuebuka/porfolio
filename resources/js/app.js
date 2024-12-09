@@ -1,48 +1,43 @@
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
-
 import './bootstrap'
 import { createApp } from 'vue'
 
-/**
- * Next, we will create a fresh Vue application instance. You may then begin
- * registering components with the application instance so they are ready
- * to use in your application's views. An example is included for you.
- */
-
 import HomeComponent from './components/pages/HomeComponent.vue'
 import NavComponent from './components/layouts/Nav/NavComponent.vue'
-import ProjectComponent from './components/pages/ProjectComponent.vue'
-import FooterComponent from './components/layouts/FooterComponent.vue'
 import ArticleComponent from './components/pages/ArticleComponent.vue'
 import adminArticle from './components/pages/admin/adminArticles.vue'
 import ErrorComponent from './components/errorSuccess/ErrorComponent.vue'
 import AppComponent from './components/App.vue'
 import ArticleDetailsComponent from './components/pages/ArticleDetailsComponent.vue'
 import SuccessComponent from '@/components/errorSuccess/SuccessComponent.vue'
+import HeroSectionComponent from './components/pages/HeroSectionComponent.vue'
 import { createPinia } from 'pinia'
 import { QuillEditor } from '@vueup/vue-quill'
 import '@vueup/vue-quill/dist/vue-quill.snow.css'
 import Login from './components/pages/admin/login.vue'
 import VueCookies from 'vue-cookies'
 import { createHead } from '@vueuse/head'
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import router from './router'
-
+import AboutMeComponent from './components/pages/AboutMeComponent.vue'
+import SkillsComponent from './components/pages/SkillComponent.vue'
+import ServiceComponent from './components/pages/ServiceComponent.vue'
+import WorkexperienceComponent from './components/pages/WorkexperienceComponent.vue'
+import Educationcomponent from './components/pages/Educationcomponent.vue'
+import ProjectComponent from './components/pages/ProjectComponent.vue'
+import ContactComponent from './components/pages/ContactComponent.vue'
+import FooterComp from './components/pages/FooterComp.vue'
+ 
 const pinia = createPinia()
 const head = createHead()
 
-
 const app = createApp({})
+
+AOS.init();
 
 app.use(router).use(pinia).use(VueCookies).use(head)
 app.component('home-component', HomeComponent)
     .component('nav-component', NavComponent)
-    .component('project-component', ProjectComponent)
-    .component('footer-component', FooterComponent)
     .component('article-component', ArticleComponent)
     .component('admin-article-component', adminArticle)
     .component('QuillEditor', QuillEditor)
@@ -51,23 +46,14 @@ app.component('home-component', HomeComponent)
     .component('success-component', SuccessComponent)
     .component('article-details-component', ArticleDetailsComponent)
     .component('login-component', Login)
-
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
-
-// Object.entries(import.meta.glob('./**/*.vue', { eager: true })).forEach(([path, definition]) => {
-//     app.component(path.split('/').pop().replace(/\.\w+$/, ''), definition.default);
-// });
-
-/**
- * Finally, we will attach the application instance to a HTML element with
- * an "id" attribute of "app". This element is included with the "auth"
- * scaffolding. Otherwise, you will need to add an element yourself.
- */
-
+    .component('herosection-component', HeroSectionComponent)
+    .component('about-me-component', AboutMeComponent)
+    .component('skill-component',SkillsComponent)
+    .component('service-component',ServiceComponent)
+    .component('workexperience-component',WorkexperienceComponent)
+    .component('education-component',Educationcomponent)
+    .component('project-component',ProjectComponent)
+    .component('contact-component',ContactComponent)
+    .component('footer-component',FooterComp)
+     
 app.mount('#app')

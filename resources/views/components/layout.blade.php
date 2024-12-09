@@ -6,13 +6,13 @@
      <meta name="viewport" content="width=device-width, initial-scale=1">
      @vite('resources/js/app.js')
      @vite('resources/css/app.css')
-     <link rel="icon" href="{{ asset('/images/Ebuka.jpeg') }}" type="image/png">
+     <link rel="icon" href="{{ asset('/images/Ebuka.jpg') }}" type="image/png">
      <!-- Meta Tags for Search Engines -->
      <meta name="description" content="Lawrence Chukwuebuka Obi - Software Engineer">
      <meta name="author" content="Lawrence Chukwuebuka Obi - Software Engineer">
      <meta property="og:title" content="Lawrence Chukwuebuka Obi - Software Engineer">
      <meta property="og:description" content="Lawrence Chukwuebuka Obi - Software Engineer">
-     <meta property="og:image" content="{{ asset('/images/Ebuka.jpeg') }}">
+     <meta property="og:image" content="{{ asset('/images/Ebuka.jpg') }}">
     <meta property="og:url" content="{{ $metaUrl ?? 'https://lorenzochukwuebuka.com.ng' }}">
      <meta property="og:type" content="website">
      <title> {{ $title ?? "Lawrence Chukwuebuka Obi" }}</title>

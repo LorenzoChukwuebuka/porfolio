@@ -130,13 +130,14 @@ const projects = ref([
             v-for="(project, index) in projects"
             :key="index"
             :class="[
-                'grid grid-cols-2 gap-4',
+                'grid gap-4 p-4',
                 index % 2 === 1 ? 'bg-black text-white' : 'bg-white text-black',
+                'grid-cols-1 md:grid-cols-2', // Responsive grid
             ]"
         >
             <!-- Project title -->
             <h2
-                class="col-span-2 text-4xl font-bold p-4"
+                class="col-span-1 md:col-span-2 text-2xl md:text-4xl font-bold"
                 :class="[
                     project.alignment,
                     index % 2 === 1 ? 'text-yellow-600' : 'text-black',
@@ -145,66 +146,70 @@ const projects = ref([
                 {{ project.title }}
             </h2>
 
-            <!-- Top-left cell -->
+            <!-- First Cell -->
             <div v-if="project.layout[0]" class="p-4">
                 <img
                     :src="project.images[0]"
                     v-if="project.layout[0] === 'image'"
                     alt="Project Image"
-                    class="w-full h-auto object-cover"
+                    class="w-full h-auto object-cover rounded-lg"
                 />
                 <div
                     v-else-if="project.layout[0] === 'description'"
                     class="flex flex-col justify-center"
                 >
-                    <p class="mt-2 text-2xl">{{ project.description }}</p>
+                    <p class="text-lg md:text-2xl">{{ project.description }}</p>
                 </div>
             </div>
-            <!-- Top-right cell -->
+
+            <!-- Second Cell -->
             <div v-if="project.layout[1]" class="p-4">
                 <img
                     :src="project.images[1]"
                     v-if="project.layout[1] === 'image'"
                     alt="Project Image"
-                    class="w-full h-auto object-cover"
+                    class="w-full h-auto object-cover rounded-lg"
                 />
                 <div
                     v-else-if="project.layout[1] === 'description'"
                     class="flex flex-col justify-center"
                 >
-                    <p class="mt-2 text-2xl">{{ project.description }}</p>
+                    <p class="text-lg md:text-2xl">{{ project.description }}</p>
                 </div>
             </div>
-            <!-- Bottom-left cell -->
+
+            <!-- Third Cell -->
             <div v-if="project.layout[2]" class="p-4">
                 <img
                     :src="project.images[2]"
                     v-if="project.layout[2] === 'image'"
                     alt="Project Image"
-                    class="w-full h-auto object-cover"
+                    class="w-full h-auto object-cover rounded-lg"
                 />
                 <div
                     v-else-if="project.layout[2] === 'description'"
                     class="flex flex-col justify-center"
                 >
-                    <p class="mt-2 text-2xl">{{ project.description }}</p>
+                    <p class="text-lg md:text-2xl">{{ project.description }}</p>
                 </div>
             </div>
-            <!-- Bottom-right cell -->
+
+            <!-- Fourth Cell -->
             <div v-if="project.layout[3]" class="p-4">
                 <img
                     :src="project.images[2]"
                     v-if="project.layout[3] === 'image'"
                     alt="Project Image"
-                    class="w-full h-auto object-cover"
+                    class="w-full h-auto object-cover rounded-lg"
                 />
                 <div
                     v-else-if="project.layout[3] === 'description'"
                     class="flex flex-col justify-center"
                 >
-                    <p class="mt-2 text-2xl">{{ project.description }}</p>
+                    <p class="text-lg md:text-2xl">{{ project.description }}</p>
                 </div>
             </div>
         </div>
     </div>
 </template>
+

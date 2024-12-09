@@ -2,9 +2,9 @@
     <nav-component></nav-component>
     <herosection-component></herosection-component>
     <about-me-component></about-me-component>
+    <workexperience-component></workexperience-component>
     <skill-component></skill-component>
     <service-component></service-component>
-    <workexperience-component></workexperience-component>
     <education-component></education-component>
     <project-component></project-component>
     <div>

@@ -19,46 +19,44 @@ const getRandomAnimation = () => {
 
 <template>
     <div
-        class="min-h-screen bg-black text-white flex flex-col items-center justify-center w-full"
+        class="min-h-screen bg-black text-white flex flex-col items-center p-2 justify-center px-4"
     >
-        <h1 class="text-orange-500 text-3xl font-bold mb-8">MY SERVICES</h1>
+        <h1 class="text-orange-500 text-3xl md:text-4xl font-bold mb-8 text-center">
+            MY SERVICES
+        </h1>
 
-        <div class="grid grid-cols-2 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-4xl">
             <!-- First Column -->
-            <div class="space-y-6">
-                <div
-                    v-for="(service, index) in [
-                        'Front End',
-                        'Full Stack',
-                        'Web Development',
-                        'Server Management',
-                    ]"
-                    :key="index"
-                    class="bg-white text-black text-xl text-center font-medium px-6 py-4 rounded-lg shadow-md hover:shadow-lg transition-shadow h-24 w-[30em]"
-                    :data-aos="getRandomAnimation()"
-                    data-aos-duration="1000"
-                    data-aos-easing="ease-in-out"
-                >
-                    {{ service }}
-                </div>
+            <div
+                v-for="(service, index) in [
+                    'Front End',
+                    'Full Stack',
+                    'Web Development',
+                    'Server Management',
+                ]"
+                :key="index"
+                class="bg-white text-black text-lg md:text-xl text-center font-medium px-4 md:px-6 py-4 rounded-lg shadow-md hover:shadow-lg transition-shadow h-24 w-full"
+                :data-aos="getRandomAnimation()"
+                data-aos-duration="1000"
+                data-aos-easing="ease-in-out"
+            >
+                {{ service }}
             </div>
 
             <!-- Second Column -->
-            <div class="space-y-6 mt-10">
-                <div
-                    v-for="(service, index) in [
-                        'Back End',
-                        'Desktop App Development',
-                        'SEO',
-                    ]"
-                    :key="index"
-                    class="bg-white text-black text-xl text-center font-medium px-6 py-4 rounded-lg shadow-md hover:shadow-lg transition-shadow h-24 w-[30em]"
-                    :data-aos="getRandomAnimation()"
-                    data-aos-duration="1000"
-                    data-aos-easing="ease-in-out"
-                >
-                    {{ service }}
-                </div>
+            <div
+                v-for="(service, index) in [
+                    'Back End',
+                    'Desktop App Development',
+                    'SEO',
+                ]"
+                :key="index"
+                class="bg-white text-black text-lg md:text-xl text-center font-medium px-4 md:px-6 py-4 rounded-lg shadow-md hover:shadow-lg transition-shadow h-24 w-full"
+                :data-aos="getRandomAnimation()"
+                data-aos-duration="1000"
+                data-aos-easing="ease-in-out"
+            >
+                {{ service }}
             </div>
         </div>
     </div>

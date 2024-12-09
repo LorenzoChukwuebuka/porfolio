@@ -1,26 +1,32 @@
 <template>
-    
-    <div class="p-4 bg-black">
-        <div class="grid grid-cols-2">
-            <div>
+    <div class="p-4 bg-black min-h-screen">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 items-center">
+            <!-- Image Section -->
+            <div class="order-2 lg:order-1">
                 <img
                     src="/images/Ebuka.jpg"
-                    alt="lorenzo"
-                    class="object-cover rounded-md h-screen w-full"
+                    alt="Lorenzo"
+                    class="object-cover rounded-md h-96 w-full lg:h-screen"
                 />
             </div>
-            <div class="p-1">
-                <h1
-                    class="text-white madimi-one-regular text-7xl mt-52 text-center"
-                >
+
+            <!-- Text Section -->
+            <div class="p-4 order-1 lg:order-2 text-center">
+                <h1 class="text-white madimi-one-regular text-5xl lg:text-7xl mt-10 lg:mt-20">
                     Lawrence
                 </h1>
-                <h1 class="text-white madimi-one-regular text-7xl text-center">
+                <h1 class="text-white madimi-one-regular text-5xl lg:text-7xl">
                     Chukwuebuka Obi
                 </h1>
 
-                <h1 class="text-white text-center mt-5 text-xl mb-2 font-semibold roboto-bold">Email Me</h1>
-                <h1 class="text-white text-center text-xl font-semibold">Lawrenceobi2@gmail.com</h1>
+                <div class="mt-8">
+                    <h1 class="text-white text-lg lg:text-xl mb-2 font-semibold roboto-bold">
+                        Email Me
+                    </h1>
+                    <h1 class="text-white text-lg lg:text-xl font-semibold">
+                        Lawrenceobi2@gmail.com
+                    </h1>
+                </div>
             </div>
         </div>
     </div>

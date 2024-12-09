@@ -17,7 +17,7 @@ const educationList = ref([
 
 
 <template>
-    <div class="bg-black text-white py-16">
+    <div class="bg-black text-white p-2 py-16">
         <div class="max-w-4xl mx-auto text-center">
             <h1 class="text-4xl font-bold text-orange-500 mb-10">Education</h1>
             <div class="space-y-8">

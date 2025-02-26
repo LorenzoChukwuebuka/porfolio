@@ -152,6 +152,7 @@ const projects = ref([
                     :src="project.images[0]"
                     v-if="project.layout[0] === 'image'"
                     alt="Project Image"
+                    loading="lazy"
                     class="w-full h-auto object-cover rounded-lg"
                 />
                 <div
@@ -168,6 +169,7 @@ const projects = ref([
                     :src="project.images[1]"
                     v-if="project.layout[1] === 'image'"
                     alt="Project Image"
+                    loading="lazy"
                     class="w-full h-auto object-cover rounded-lg"
                 />
                 <div
@@ -184,6 +186,7 @@ const projects = ref([
                     :src="project.images[2]"
                     v-if="project.layout[2] === 'image'"
                     alt="Project Image"
+                    loading="lazy"
                     class="w-full h-auto object-cover rounded-lg"
                 />
                 <div
@@ -200,6 +203,7 @@ const projects = ref([
                     :src="project.images[2]"
                     v-if="project.layout[3] === 'image'"
                     alt="Project Image"
+                    loading="lazy"
                     class="w-full h-auto object-cover rounded-lg"
                 />
                 <div

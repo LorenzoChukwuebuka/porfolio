@@ -7,6 +7,7 @@
                     src="/images/Ebuka.jpg"
                     alt="Lorenzo"
                     class="object-cover rounded-md h-96 w-full lg:h-screen"
+                    loading="lazy"
                 />
             </div>
 

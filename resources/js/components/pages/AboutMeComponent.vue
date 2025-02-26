@@ -44,6 +44,7 @@
                     src="/images/f15e4cf1cb1c1c38763cd5267e00d188.png"
                     alt="Workspace Image"
                     class="rounded-lg w-full h-auto"
+                    loading="lazy"
                 />
             </div>
         </div>

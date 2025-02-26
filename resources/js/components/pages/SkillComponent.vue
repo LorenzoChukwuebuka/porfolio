@@ -38,6 +38,7 @@
                 src="/images/158487b2b68beba84210bc309286f612.png"
                 alt="Skills Image"
                 class="lg:w-[40rem] md:w-auto sm:w-auto h-52 mt-4 mb-4"
+                loading="lazy"
             />
         </div>
 
@@ -48,6 +49,7 @@
                 src="/images/69bd3c35ab72c5a698f7f9df0a4510d2.png"
                 alt="Expertise Image"
                 class="lg:w-[40rem] md:w-auto sm:w-auto h-52 mt-2 mb-4"
+                loading="lazy"
             />
             <h2 class="text-5xl font-bold mb-4" data-aos="fade-right" data-aos-duration="1000"  data-aos-easing="linear">EXPERTISE</h2>
             <ul class="list-disc text-xl ml-6 space-y-2">

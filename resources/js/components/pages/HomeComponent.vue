@@ -12,13 +12,10 @@
         <h2 class="text-center text-3xl font-semibold mb-4 mt-2 md:text-4xl">
             Tools Proficiency
         </h2>
-        
+
         <!-- Image -->
-        <img
-            src="/images/tools.png"
-            alt="Tools Proficiency"
-            class="w-full max-w-md md:max-w-3xl rounded-md shadow-lg"
-        />
+        <img src="/images/tools.png" loading="lazy" alt="Tools Proficiency"
+            class="w-full max-w-md md:max-w-3xl rounded-md shadow-lg" />
     </div>
     <contact-component></contact-component>
     <footer-component></footer-component>

@@ -9,11 +9,11 @@ import AdminViewArticles from "../components/pages/admin/adminViewArticles.vue"
 import VueCookies from "vue-cookies";
 
 const routes = [
-    {
-        path: '/articles/:id/:title',
-        name: 'ArticleSlug',
-        component: ArticleDetailsComponent
-    },
+    // {
+    //     path: '/articles/:id/:title',
+    //     name: 'ArticleSlug',
+    //     component: ArticleDetailsComponent
+    // },
 
     {
         path: '/next/login',

@@ -3,12 +3,8 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 items-center">
             <!-- Image Section -->
             <div class="order-2 lg:order-1">
-                <img
-                    src="/images/Ebuka.jpg"
-                    alt="Lorenzo"
-                    class="object-cover rounded-md h-96 w-full lg:h-screen"
-                    loading="lazy"
-                />
+                <img src="/images/Ebuka.jpg" alt="Lorenzo" class="object-cover rounded-md h-96 w-full lg:h-screen"
+                    loading="lazy" />
             </div>
 
             <!-- Text Section -->
@@ -25,7 +21,7 @@
                         Email Me
                     </h1>
                     <h1 class="text-white text-lg lg:text-xl font-semibold">
-                        Lawrenceobi2@gmail.com
+                        me@lorenzochukwuebuka.com.ng
                     </h1>
                 </div>
             </div>

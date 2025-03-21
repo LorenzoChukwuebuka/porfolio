@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ArticleDetailsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,6 +25,9 @@ Route::get('/projects', function () {
 Route::get('/articles', function () {
     return view('article');
 });
+
+Route::get('/articles/{id}/{title}', [ArticleDetailsController::class, 'show'])->name('article.show');
+
 Route::get('/{any}', function () {
     return view('admin.admindash');
 })->where("any", ".*");

@@ -5,96 +5,67 @@
                 Welcome Lorenzo
             </h1>
 
-            <div
-                class="rounded-badge mx-auto mt-10 space-y-4 overflow-hidden h-auto p-4 w-full"
-            >
-                <p
-                    class="text-md pt-2 pb-2 px-2 py-1 rounded-md text-[rgb(102,112,133)] font-medium w-full"
-                >
-                    <router-link to="/next/admin-dash">
-                        <i class="bi bi-grid"></i> Dashboard
-                    </router-link>
-                </p>
-                <p
-                    class="text-medium space-x-1 text-[rgb(102,112,133)] pt-1 pb-2 px-2 py-1 rounded-md font-medium w-full"
-                >
-                    <router-link to="/next/admin-article">
-                        <i class="bi bi-book"></i> Article
-                    </router-link>
-                </p>
+            <el-menu class="mt-10 w-full" default-active="1" :router="true">
+                <el-menu-item index="/next/admin-dash">
+                    <el-icon>
+                        <Grid />
+                    </el-icon>
+                    <span>Dashboard</span>
+                </el-menu-item>
+                <el-menu-item index="/next/admin-article">
+                    <el-icon>
+                        <Document />
+                    </el-icon>
+                    <span>Article</span>
+                </el-menu-item>
+                <el-menu-item index="/next/admin-view-article">
+                    <el-icon>
+                        <View />
+                    </el-icon>
+                    <span>View Articles</span>
+                </el-menu-item>
+                <el-menu-item index="">
+                    <el-icon>
+                        <Setting />
+                    </el-icon>
+                    <span>Setting</span>
+                </el-menu-item>
+            </el-menu>
 
-                <p
-                    class="text-medium space-x-1 pt-2 pb-2 px-2 py-1 text-[rgb(102,112,133)] rounded-md font-medium w-full"
-                >
-                    <router-link to="/next/admin-view-article">
-                        <i class="bi bi-book"></i> View Articles
-                    </router-link>
-                </p>
-
-                <p
-                    class="text-medium space-x-1 pt-2 pb-2 px-2 py-1 text-[rgb(102,112,133)] rounded-md font-medium w-full"
-                >
-                    <router-link to="">
-                        <i class="bi bi-gear"></i> Setting
-                    </router-link>
-                </p>
+            <div class="rounded-badge mx-auto bg-blue-50 shadow-sm overflow-hidden h-[12rem] p-4 w-full md:w-[12rem]">
             </div>
 
-            <div
-                class="rounded-badge mx-auto bg-blue-50 shadow-sm overflow-hidden h-[12rem] p-4 w-full md:w-[12rem]"
-            ></div>
-
-            <p
-                class="mt-5 ml-5 text-medium font-medium text-[rgb(102,112,133)]"
-            >
-                <i class="bi bi-box-arrow-right"></i> Log out
+            <p class="mt-5 ml-5 text-medium font-medium text-[rgb(102,112,133)] cursor-pointer">
+                <el-icon>
+                    <SwitchButton />
+                </el-icon> Log out
             </p>
         </div>
-        <div
-            class="col-span-1 md:col-span-10 overflow-y-auto bg-[rgb(236,245,255)]"
-        >
-            <div class="hidden md:navbar md:shadow-sm md:px-4 bg-white">
-                <div class="flex-1">
-                    <input
-                        type="text"
-                        class="ml-1 p-2 border w-72 border-gray-300 rounded-btn"
-                        placeholder="Search"
-                    />
+        <div class="col-span-1 md:col-span-10 overflow-y-auto bg-[rgb(236,245,255)]">
+            <el-header class="hidden md:flex items-center shadow-sm px-4 bg-white justify-between">
+                <el-input placeholder="Search" class="w-72" />
+                <div class="flex items-center gap-5">
+                    <el-dropdown>
+                        <span class="flex items-center cursor-pointer">
+                            Super Admin <el-icon>
+                                <ArrowDown />
+                            </el-icon>
+                        </span>
+                        <template #dropdown>
+                            <el-dropdown-menu>
+                                <el-dropdown-item>Profile</el-dropdown-item>
+                                <el-dropdown-item>Settings</el-dropdown-item>
+                                <el-dropdown-item>Logout</el-dropdown-item>
+                            </el-dropdown-menu>
+                        </template>
+                    </el-dropdown>
+                    <el-badge :value="6" class="cursor-pointer">
+                        <el-icon>
+                            <Bell />
+                        </el-icon>
+                    </el-badge>
                 </div>
-                <div class="flex-none gap-5">
-                    <div class="dropdown dropdown-end">
-                        <div tabindex="0" role="button" class="avatar">
-                            <span class="font-semibold text-medium gap-2">
-                                super admin
-                                <b> <i class="bi bi-chevron-down"></i> </b>
-                            </span>
-                        </div>
-                        <ul
-                            tabindex="0"
-                            class="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
-                        >
-                            <li>
-                                <a class="justify-between">
-                                    Profile
-                                    <span class="badge">New</span>
-                                </a>
-                            </li>
-                            <li><a>Settings</a></li>
-                            <li><a>Logout</a></li>
-                        </ul>
-                    </div>
-
-                    <a class="btn btn-ghost text-xl">
-                        <i class="bi bi-bell">
-                            <sup
-                                class="indicator-item badge bg-red-500 text-white badge-secondary"
-                            >
-                                6
-                            </sup>
-                        </i>
-                    </a>
-                </div>
-            </div>
+            </el-header>
 
             <div class="top-0 px-12 py-2">
                 <router-view></router-view>
@@ -103,3 +74,12 @@
     </div>
 </template>
 
+<script setup>
+import { Grid, Document, View, Setting, SwitchButton, ArrowDown, Bell } from '@element-plus/icons-vue';
+</script>
+
+<style>
+/* .el-menu-item {
+    @apply text-[rgb(102, 112, 133)] font-medium;
+} */
+</style>

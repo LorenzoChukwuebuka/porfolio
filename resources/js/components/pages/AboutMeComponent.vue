@@ -1,16 +1,10 @@
 <template>
     <div class="bg-gray-200 p-8" id="aboutMe">
-        <div
-            class="mx-auto grid grid-cols-1 md:grid-cols-12 items-center gap-8 max-w-6xl"
-        >
+        <div class="mx-auto grid grid-cols-1 md:grid-cols-12 items-center gap-8 max-w-6xl">
             <!-- Left Content -->
             <div class="col-span-1 md:col-span-8">
-                <h2
-                    class="text-sm md:text-lg font-semibold uppercase tracking-wide text-gray-600"
-                    data-aos="fade-up"
-                    data-aos-duration="1000"
-                    data-aos-easing="linear"
-                >
+                <h2 class="text-sm md:text-lg font-semibold uppercase tracking-wide text-gray-600" data-aos="fade-up"
+                    data-aos-duration="1000" data-aos-easing="linear">
                     A LITTLE ABOUT ME
                 </h2>
                 <h3 class="text-2xl md:text-4xl font-bold text-gray-800 mt-4">
@@ -40,12 +34,8 @@
             </div>
             <!-- Right Image -->
             <div class="col-span-1 md:col-span-4">
-                <img
-                    src="/images/f15e4cf1cb1c1c38763cd5267e00d188.png"
-                    alt="Workspace Image"
-                    class="rounded-lg w-full h-auto"
-                    loading="lazy"
-                />
+                <img src="/images/f15e4cf1cb1c1c38763cd5267e00d188.png" alt="Workspace Image"
+                    class="rounded-lg w-full h-auto" loading="lazy" />
             </div>
         </div>
     </div>

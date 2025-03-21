@@ -65,11 +65,7 @@ const projects = ref([
                 <!-- Left Section -->
                 <div class="md:col-span-2">
                     <ul class="space-y-4">
-                        <li
-                            v-for="(job, index) in workExperience"
-                            :key="index"
-                            class="border-b pb-4"
-                        >
+                        <li v-for="(job, index) in workExperience" :key="index" class="border-b pb-4">
                             <h2 class="text-lg md:text-xl font-semibold">
                                 {{ job.title }}
                             </h2>
@@ -82,17 +78,11 @@ const projects = ref([
 
                 <!-- Right Section -->
                 <div>
-                    <h2
-                        class="text-xl md:text-2xl font-bold text-orange-500 mb-6"
-                    >
+                    <h2 class="text-xl md:text-2xl font-bold text-orange-500 mb-6">
                         Other Projects
                     </h2>
                     <ul class="space-y-4">
-                        <li
-                            v-for="(project, index) in projects"
-                            :key="index"
-                            class="border-b pb-4"
-                        >
+                        <li v-for="(project, index) in projects" :key="index" class="border-b pb-4">
                             <h3 class="text-lg md:text-xl font-semibold">
                                 {{ project.name }}
                             </h3>

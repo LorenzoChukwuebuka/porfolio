@@ -119,12 +119,15 @@ export const useEditorStore = defineStore('editorStore', () => {
 
     const getArticles = async () => {
         try {
+            isLoading.value = true
             let response = await axios.get(
                 `/api/get-article?page=${page.value}`
             )
             articles.value = response.data.payload.data
         } catch (error) {
             console.log(error)
+        }finally{
+            isLoading.value = false
         }
     }
 
@@ -138,13 +141,13 @@ export const useEditorStore = defineStore('editorStore', () => {
         }
     }
 
-    const increaseView = async (postId) => {
-         try {
-            let response = await axios.put('/api/update-view/'+postId)
+    const increaseView = async postId => {
+        try {
+            let response = await axios.put('/api/update-view/' + postId)
             console.log(response.data)
-         } catch (error) {
+        } catch (error) {
             console.log(error)
-         }
+        }
     }
 
     function generateSlug (title) {

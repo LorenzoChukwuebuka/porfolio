@@ -1,68 +1,74 @@
 <script setup>
-import { useEditorStore } from "./../../../store/index.js";
-import { QuillEditor } from "@vueup/vue-quill";
-import { watch, ref } from "vue";
-import SuccessComponent from "@/components/errorSuccess/SuccessComponent.vue";
+import { useEditorStore } from "@/store";
+import { ref } from "vue";
+import { ElMessage, ElButton, ElInput, ElCard, ElUpload, ElIcon } from "element-plus";
+import { UploadFilled } from "@element-plus/icons-vue";
+
 const editorStore = useEditorStore();
+const myQuillEditor = ref(null);
+const fileList = ref([]);
+
+const handleUpload = (file) => {
+    fileList.value = [file];
+    // Simulate upload logic
+    console.log("File uploaded:", file.raw);
+    editorStore.articleFile = file.raw;
+};
 </script>
 
-
 <template>
-    <main>
-        <div
-            class="rounded-badge mx-auto mt-10 bg-white shadow-sm overflow-hidden h-42 p-4 w-full m:w-full"
-        >
-            <error-component
-                v-if="editorStore.isError"
-                :errorMessage="editorStore.errorMessage"
-            ></error-component>
+    <main class="flex justify-center items-center min-h-screen bg-gray-100 p-6">
+        <ElCard class="w-full max-w-4xl shadow-lg rounded-lg">
+            <template #header>
+                <h1 class="text-xl font-semibold text-blue-600">Create Article</h1>
+            </template>
 
-            <success-component
-                v-if="editorStore.isSuccess"
-                :successMessage="editorStore.successMessage"
-            ></success-component>
-            <h1 class="text-lg font-semibold text-blue-500">Create Articles</h1>
+            <div v-if="editorStore.isError" class="mb-3">
+                <ElMessage type="error">{{ editorStore.errorMessage }}</ElMessage>
+            </div>
+            <div v-if="editorStore.isSuccess" class="mb-3">
+                <ElMessage type="success">{{ editorStore.successMessage }}</ElMessage>
+            </div>
 
-            <label class="form-control w-full max-w-[20em] mt-1 mb-3">
-                <div class="label">
-                    <span class="label-text text-medium font-medium"
-                        >Title</span
-                    >
-                </div>
-                <input
-                    type="text"
-                    v-model="editorStore.title"
-                    class="ml-1 p-2 border w-full border-gray-300 rounded-btn"
-                    placeholder="title"
-                    required
-                />
-            </label>
+            <ElInput v-model="editorStore.title" placeholder="Enter article title" class="mb-4" />
 
-            <QuillEditor
-                v-model:content="editorStore.editorContent"
-                :options="editorStore.editorOptions"
-                ref="myQuillEditor"
-                class="h-[27em]"
-                content-type="html"
-            />
+            <ElUpload class="upload-container mb-4" :limit="1" :auto-upload="false" :on-change="handleUpload"
+                v-model:file-list="fileList">
+                <ElButton type="info">
+                    <ElIcon>
+                        <UploadFilled />
+                    </ElIcon>
+                    Upload Article Image
+                </ElButton>
+            </ElUpload>
 
-            <hr class="p-2" />
-            <button
-                v-if="!editorStore.isLoading"
-                class="p-3 px-6 pt-4 text-white text-center mt-4 mx-auto bg-blue-500 rounded-btn block w-full max-w-[15em]"
-                @click.prevent="editorStore.submitPost"
-                type="submit"
-            >
-                Submit
-            </button>
+            <div class="h-[400px] border border-gray-300 rounded-md overflow-hidden">
+                <QuillEditor v-model:content="editorStore.editorContent" :options="editorStore.editorOptions"
+                    ref="myQuillEditor" class="h-full w-full" content-type="html" />
+            </div>
 
-            <button
-                v-if="editorStore.isLoading"
-                class="p-3 px-6 pt-4 text-white text-center mt-4 mx-auto bg-blue-200 rounded-btn block w-full max-w-[15em]"
-                disabled
-            >
-                Please Wait ....
-            </button>
-        </div>
+            <div class="flex justify-end mt-4">
+                <ElButton type="primary" :loading="editorStore.isLoading" @click="editorStore.submitPost">
+                    {{ editorStore.isLoading ? "Submitting..." : "Submit" }}
+                </ElButton>
+            </div>
+        </ElCard>
     </main>
 </template>
+
+<style>
+.el-card {
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.upload-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border: 1px dashed #dcdfe6;
+    border-radius: 6px;
+    background-color: #fafafa;
+}
+</style>

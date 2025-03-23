@@ -1,3 +1,18 @@
+<script setup>
+import { Grid, Document, View, Setting, SwitchButton, ArrowDown, Bell } from '@element-plus/icons-vue';
+import { ref } from 'vue';
+const showLogoutDialog = ref(false);
+const initiateLogout = () => {
+    showLogoutDialog.value = true;
+};
+const cancelLogout = () => {
+    showLogoutDialog.value = false;
+};
+const confirmLogout = () => {
+    window.location.href = '/next/login';
+}
+</script>
+
 <template>
     <div class="grid grid-cols-1 md:grid-cols-12 md:h-screen overflow-hidden">
         <div class="col-span-1 shadow-lg bg-white p-4 md:col-span-2">
@@ -32,17 +47,17 @@
                 </el-menu-item>
             </el-menu>
 
-            <div class="rounded-badge mx-auto bg-blue-50 shadow-sm overflow-hidden h-[12rem] p-4 w-full md:w-[12rem]">
-            </div>
+            <!-- <div class="rounded-badge mx-auto bg-blue-50 shadow-sm overflow-hidden h-[12rem] p-4 w-full md:w-[12rem]">
+            </div> -->
 
-            <p class="mt-5 ml-5 text-medium font-medium text-[rgb(102,112,133)] cursor-pointer">
+            <p class="mt-5 ml-5 text-medium font-medium text-[rgb(102,112,133)] cursor-pointer" @click="initiateLogout">
                 <el-icon>
                     <SwitchButton />
                 </el-icon> Log out
             </p>
         </div>
         <div class="col-span-1 md:col-span-10 overflow-y-auto bg-[rgb(236,245,255)]">
-            <el-header class="hidden md:flex items-center shadow-sm px-4 bg-white justify-between">
+            <!-- <el-header class="hidden md:flex items-center shadow-sm px-4 bg-white justify-between">
                 <el-input placeholder="Search" class="w-72" />
                 <div class="flex items-center gap-5">
                     <el-dropdown>
@@ -58,25 +73,34 @@
                                 <el-dropdown-item>Logout</el-dropdown-item>
                             </el-dropdown-menu>
                         </template>
-                    </el-dropdown>
-                    <el-badge :value="6" class="cursor-pointer">
-                        <el-icon>
-                            <Bell />
-                        </el-icon>
-                    </el-badge>
-                </div>
-            </el-header>
+</el-dropdown>
+<el-badge :value="6" class="cursor-pointer">
+    <el-icon>
+        <Bell />
+    </el-icon>
+</el-badge>
+</div>
+</el-header> -->
 
             <div class="top-0 px-12 py-2">
                 <router-view></router-view>
             </div>
         </div>
+
+        <el-dialog v-model="showLogoutDialog" title="Confirm Logout" width="30%" :before-close="cancelLogout">
+            <span>Are you sure you want to logout?</span>
+            <template #footer>
+                <span class="dialog-footer">
+                    <el-button @click="cancelLogout">Cancel</el-button>
+                    <el-button type="primary" @click="confirmLogout">Confirm Logout</el-button>
+                </span>
+            </template>
+        </el-dialog>
+
     </div>
 </template>
 
-<script setup>
-import { Grid, Document, View, Setting, SwitchButton, ArrowDown, Bell } from '@element-plus/icons-vue';
-</script>
+
 
 <style>
 /* .el-menu-item {

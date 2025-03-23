@@ -24,4 +24,6 @@ Route::post("/post-article", [\App\Http\Controllers\ArticleController::class, 'c
 Route::get("/get-article", [\App\Http\Controllers\ArticleController::class, 'get_all_posts']);
 Route::get('/get-post/{id}', [Controllers\ArticleController::class, 'get_post_by_id']);
 Route::put('/update-view/{postId}', [Controllers\ArticleController::class, 'update_view']);
-Route::get('/download-resume/{filename}',[Controllers\FileDownloadController::class,'download']);
+Route::get('/download-resume/{filename}', [Controllers\FileDownloadController::class, 'download']);
+Route::put('/update-article/{id}', [Controllers\ArticleController::class, 'update_posts']);
+Route::delete('/delete-article/{id}', [Controllers\ArticleController::class, 'delete_posts']);

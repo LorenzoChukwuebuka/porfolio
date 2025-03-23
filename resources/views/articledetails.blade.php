@@ -12,7 +12,7 @@
     <!-- Primary Meta Tags -->
     <title>{{ $article->title }} | Lawrence Chukwuebuka Obi</title>
     <meta name="title" content="{{ $article->title }} | Lawrence Chukwuebuka Obi">
-    <meta name="description" content="{{ $article->excerpt }}">
+    <meta name="description" content="{{ $excerpt }}">
     <meta name="author" content="Lawrence Chukwuebuka Obi">
 
     <!-- Canonical URL -->
@@ -22,7 +22,7 @@
     <meta property="og:type" content="article">
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:title" content="{{ $article->title }} | Lawrence Chukwuebuka Obi">
-    <meta property="og:description" content="{{ $article->excerpt }}">
+    <meta property="og:description" content="{{ $excerpt }}">
     <meta property="og:image" content="{{ asset($article->image ?? '/images/default-article-png.avif') }}">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -31,7 +31,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="{{ url()->current() }}">
     <meta name="twitter:title" content="{{ $article->title }} | Lawrence Chukwuebuka Obi">
-    <meta name="twitter:description" content="{{ $article->excerpt }}">
+    <meta name="twitter:description" content="{{ $excerpt }}">
     <meta name="twitter:image" content="{{ asset($article->image ?? '/images/default-article-png.avif') }}">
 
     <!-- Keywords (Optional) -->
@@ -52,8 +52,8 @@
             "@id": "{{ url()->current() }}"
         },
         "headline": "{{ $article->title }}",
-        "description": "{{ $article->excerpt }}",
-        "image": "{{ asset($article->image ?? '/images/default-article.jpg') }}",
+        "description": "{{ $excerpt }}",
+        "image": "{{ asset($article->image ?? '/images/default-article-png.avif') }}",
         "author": {
             "@type": "Person",
             "name": "Lawrence Chukwuebuka Obi"

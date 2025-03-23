@@ -12,7 +12,7 @@ class ArticleDetailsController extends Controller
 
         // Generate the excerpt from the article's content
         $excerpt = $this->generateExcerpt($article->post);
-        
+  
         return view('articledetails', compact('article', 'excerpt'));
     }
 

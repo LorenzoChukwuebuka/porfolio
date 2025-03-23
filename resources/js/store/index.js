@@ -3,7 +3,6 @@ import { ref, reactive, onMounted } from 'vue'
 import { QuillEditor } from '@vueup/vue-quill'
 import axios from 'axios'
 import { useRouter } from 'vue-router'
-import VueCookies from 'vue-cookies'
 
 export const useAuthStore = defineStore('authstore', () => {
     const formValues = ref({ email: '', password: '' })
@@ -71,6 +70,8 @@ export const useEditorStore = defineStore('editorStore', () => {
     const article = ref(null)
     const page = ref(1)
     const view = ref(1)
+    const articleFile = ref(null)
+    const currentArticle = ref(null)
 
     const getEditorContent = () => {
         console.log('Editor Content:', editorContent.value)
@@ -79,14 +80,16 @@ export const useEditorStore = defineStore('editorStore', () => {
     const submitPost = async () => {
         try {
             isLoading.value = true
-            let data = {
-                title: title.value,
-                post: editorContent.value
-            }
 
-            let response = await axios.post('/api/post-article', data)
+            let formData = new FormData()
+            formData.append('title', title.value)
+            formData.append('post', editorContent.value)
+            formData.append('file', articleFile.value)
+
+            let response = await axios.post('/api/post-article', formData)
             isSuccess.value = true
             successMessage.value = response.data.message
+            //  window.location.reload()
         } catch (error) {
             isLoading.value = false
             isError.value = true
@@ -126,7 +129,7 @@ export const useEditorStore = defineStore('editorStore', () => {
             articles.value = response.data.payload.data
         } catch (error) {
             console.log(error)
-        }finally{
+        } finally {
             isLoading.value = false
         }
     }
@@ -163,17 +166,94 @@ export const useEditorStore = defineStore('editorStore', () => {
         return slug
     }
 
+    const updateArticle = async id => {
+        try {
+            isLoading.value = true
+
+            let formData = new FormData()
+            formData.append('title', title.value)
+            formData.append('post', editorContent.value)
+            // formData.append('_method', 'PUT') // For Laravel's form method spoofing
+
+            if (articleFile.value) {
+                formData.append('file', articleFile.value)
+            }
+
+            // Use the provided id or the currentArticle id
+            const articleId = id || currentArticle.value?.id
+
+            let response = await axios.put(
+                `/api/update-article/${articleId}`,
+                formData
+            )
+
+            isSuccess.value = true
+            successMessage.value =
+                response.data.message || 'Article updated successfully'
+
+            // Refresh the articles list
+            getArticles()
+        } catch (error) {
+            console.error(error)
+            isError.value = true
+            errorMessage.value =
+                error.response?.data?.error || 'Failed to update article'
+        } finally {
+            isLoading.value = false
+        }
+    }
+
+    const deleteArticle = async id => {
+        try {
+            isLoading.value = true
+
+            // Use the provided id or the currentArticle id
+            const articleId = id || currentArticle.value?.id
+
+            let response = await axios.delete(
+                `/api/delete-article/${articleId}`
+            )
+
+            isSuccess.value = true
+            successMessage.value =
+                response.data.message || 'Article deleted successfully'
+
+            // Refresh the articles list
+            getArticles()
+        } catch (error) {
+            console.error(error)
+            isError.value = true
+            errorMessage.value =
+                error.response?.data?.error || 'Failed to delete article'
+        } finally {
+            isLoading.value = false
+        }
+    }
+
+    // Function to set the current article for editing or deleting
+    const setCurrentArticle = articleData => {
+        currentArticle.value = articleData
+        if (articleData) {
+            title.value = articleData.title || ''
+            editorContent.value = articleData.content || ''
+        }
+    }
+
     onMounted(() => {
         getArticles()
     })
 
     const editorOptions = reactive({
-        // debug: 'info',
         placeholder: 'Type your post...',
+        theme: 'snow',
         modules: {
             toolbar: [
                 [{ header: [1, 2, 3, 4, 5, 6, false] }],
+                [{ font: [] }],
+                [{ size: [] }],
                 ['bold', 'italic', 'underline', 'strike'],
+                [{ color: [] }, { background: [] }],
+                [{ script: 'sub' }, { script: 'super' }],
                 ['blockquote', 'code-block'],
                 [
                     { list: 'ordered' },
@@ -181,6 +261,8 @@ export const useEditorStore = defineStore('editorStore', () => {
                     { indent: '-1' },
                     { indent: '+1' }
                 ],
+                [{ direction: 'rtl' }],
+                [{ align: [] }],
                 ['link', 'image', 'video'],
                 ['clean']
             ]
@@ -205,6 +287,11 @@ export const useEditorStore = defineStore('editorStore', () => {
         getArticle,
         article,
         handlePageChange,
-        increaseView
+        increaseView,
+        articleFile,
+        updateArticle,
+        deleteArticle,
+        currentArticle,
+        setCurrentArticle
     }
 })

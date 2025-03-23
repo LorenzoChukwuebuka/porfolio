@@ -1,8 +1,11 @@
 <template>
     <nav class="flex items-center justify-between px-4 py-2 bg-white shadow-md">
         <!-- Logo -->
-        <div class="flex items-center">
-            <!-- <h1 class="text-xl font-bold">MyLogo</h1> -->
+        <div class="flex items-center justify-center">
+            <a href="/">
+                <img src="/images/Ebuka.jpg" alt="Lorenzo" class="object-cover rounded-md h-8 w-8 lg:h-8 lg:w-8"
+                    loading="lazy" />
+            </a>
         </div>
 
         <!-- Hamburger Menu (Mobile) -->

@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Interface\IArticleService;
@@ -48,14 +47,22 @@ class ArticleController extends Controller
     public function update_posts(Request $request, $id)
     {
         try {
-
+            $result = $this->articleService->update_posts($request, $id);
+            return $this->success("post updated", $result, 200);
         } catch (\Throwable $e) {
-
+            return $this->fail($th->getMessage());
         }
     }
 
     public function delete_posts($id)
-    {}
+    {
+        try {
+            $result = $this->articleService->delete_posts($id);
+            return $this->success("post deleted", $result, 200);
+        } catch (\Throwable $th) {
+            return $this->fail($th->getMessage());
+        }
+    }
 
     public function update_view($postId, Request $request)
     {
